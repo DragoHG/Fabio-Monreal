@@ -46,6 +46,10 @@ h1 {
   margin: 0 0 4px !important;
 }
 
+.hero h1 .lang-switch {
+  display: none !important;
+}
+
 h2 {
   font-size: 11px !important;
   letter-spacing: 0.04em !important;

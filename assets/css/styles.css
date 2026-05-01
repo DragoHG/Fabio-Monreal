@@ -48,6 +48,24 @@ h1 {
   font-size: 2rem;
   line-height: 1.1;
 }
+.hero h1 .name {
+  font-weight: 700;
+}
+.hero h1 .lang-switch {
+  font-weight: 400;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.hero h1 .lang-switch a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-underline-offset: 2px;
+}
+.hero h1 .lang-switch a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
 h2 {
   font-size: 1.05rem;
   color: var(--accent);
