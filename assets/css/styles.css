@@ -1,0 +1,133 @@
+:root {
+  --bg: #f3f5f7;
+  --surface: #ffffff;
+  --text: #10212f;
+  --muted: #4a5a67;
+  --accent: #165d84;
+  --line: #d8e0e6;
+  --shadow: 0 10px 24px rgba(16, 33, 47, 0.08);
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+.resume {
+  width: min(980px, 92vw);
+  margin: 28px auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 26px 30px;
+}
+.section + .section {
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding-top: 16px;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+  letter-spacing: 0.01em;
+}
+h1 {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+h2 {
+  font-size: 1.05rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+h3 {
+  font-size: 0.96rem;
+  margin-bottom: 3px;
+}
+p,
+ul {
+  margin: 0;
+}
+.hero .headline {
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+.contacts,
+.links {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px 10px;
+  align-items: center;
+  font-size: 0.9rem;
+}
+.links span {
+  color: var(--text);
+}
+.links-second-row {
+  margin-top: 2px;
+}
+.dot {
+  color: var(--muted);
+}
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.entry + .entry {
+  margin-top: 10px;
+}
+.entry p {
+  color: #24333f;
+  font-size: 0.9rem;
+}
+.focus {
+  margin-bottom: 4px;
+  font-style: italic;
+  color: var(--muted);
+}
+ul {
+  margin-top: 4px;
+  padding-left: 16px;
+}
+li + li {
+  margin-top: 4px;
+}
+li {
+  font-size: 0.88rem;
+  color: #1d2f3b;
+}
+.grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+@media (max-width: 900px) {
+  .resume {
+    width: 96vw;
+    padding: 20px;
+    border-radius: 12px;
+  }
+  .grid-two {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}

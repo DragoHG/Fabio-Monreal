@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "fabio-monreal-cv"
+version = "0.1.0"
+description = "Interactive executive résumé: public HTML + Playwright PDF pipeline (private HTML not committed)."
+authors = ["Fábio Monreal <fabio.monreal@outlook.com>"]
+readme = "README.md"
+packages = []
+
+[tool.poetry.dependencies]
+python = "^3.10"
+playwright = "^1.49.0"
+pypdf = "^5.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,33 @@
+# Cópias locais com telefone / ATS — não publicar no remoto público
+index_private.html
+index_en_private.html
+
+CURRICULO.md
+
+# PDFs gerados localmente
+*.pdf
+.pdf_fit_scratch.pdf
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Ambientes virtuais
+.venv/
+venv/
+ENV/
+
+# Segredos / ambiente local
+.env
+.env.*
+
+.poetry/cache/
+
+# SO
+.DS_Store
+Thumbs.db
