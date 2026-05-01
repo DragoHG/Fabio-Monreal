@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" aria-hidden="true">
+  <title>Marca Monreal</title>
+  <defs>
+    <linearGradient id="monoGold"
+                    x1="7"
+                    x2="25"
+                    y1="6"
+                    y2="28"
+                    gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c9aa5b" />
+      <stop offset=".42" stop-color="#f0e4c4" />
+      <stop offset=".78" stop-color="#a67c34" />
+      <stop offset="1" stop-color="#6b4e24" />
+    </linearGradient>
+  </defs>
+  <!-- Placa estilo ex-libris / dark academia -->
+  <rect fill="#0b0e0d" height="32" rx="7" width="32" />
+  <rect fill="#0f1411"
+        height="29.5"
+        rx="6"
+        stroke="#2d261c"
+        stroke-width="0.7"
+        width="29.5"
+        x="1.25"
+        y="1.25" />
+  <rect fill="none"
+        height="26.5"
+        rx="4.5"
+        stroke="#504636"
+        stroke-opacity="0.45"
+        stroke-width="0.45"
+        width="26.5"
+        x="2.75"
+        y="2.75" />
+  <!-- M geométrico: contorno fechado só com L — evita artefactos no centro -->
+  <path fill="url(#monoGold)"
+        d="M 8 26 L 8 7 L 11.5 7 L 16 17.2 L 20.5 7 L 24 7 L 24 26 L 20.5 26 L 20.5 12 L 16 20.2 L 11.5 12 L 11.5 26 Z" />
+</svg>
