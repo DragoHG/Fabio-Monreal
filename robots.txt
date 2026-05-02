@@ -1,0 +1,5 @@
+# Ver também: Search Console → Sitemaps → https://fabio-monreal.vercel.app/sitemap.xml
+User-agent: *
+Allow: /
+
+Sitemap: https://fabio-monreal.vercel.app/sitemap.xml

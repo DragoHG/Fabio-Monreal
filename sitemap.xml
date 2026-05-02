@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Currículo PT-BR (canónico raiz) -->
+  <url>
+    <loc>https://fabio-monreal.vercel.app/</loc>
+    <xhtml:link href="https://fabio-monreal.vercel.app/"
+                hreflang="pt-BR"
+                rel="alternate" />
+    <xhtml:link href="https://fabio-monreal.vercel.app/en"
+                hreflang="en-US"
+                rel="alternate" />
+    <xhtml:link href="https://fabio-monreal.vercel.app/"
+                hreflang="x-default"
+                rel="alternate" />
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!-- Versão EN -->
+  <url>
+    <loc>https://fabio-monreal.vercel.app/en</loc>
+    <xhtml:link href="https://fabio-monreal.vercel.app/"
+                hreflang="pt-BR"
+                rel="alternate" />
+    <xhtml:link href="https://fabio-monreal.vercel.app/en"
+                hreflang="en-US"
+                rel="alternate" />
+    <xhtml:link href="https://fabio-monreal.vercel.app/"
+                hreflang="x-default"
+                rel="alternate" />
+    <lastmod>2026-05-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
