@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- Currículo PT-BR (canónico raiz) -->
+  <!-- PT-BR root (canonical) -->
   <url>
     <loc>https://fabio-monreal.vercel.app/</loc>
-    <xhtml:link href="https://fabio-monreal.vercel.app/"
+    <xhtml:link rel="alternate"
                 hreflang="pt-BR"
-                rel="alternate" />
-    <xhtml:link href="https://fabio-monreal.vercel.app/en"
+                href="https://fabio-monreal.vercel.app/" />
+    <xhtml:link rel="alternate"
                 hreflang="en-US"
-                rel="alternate" />
-    <xhtml:link href="https://fabio-monreal.vercel.app/"
+                href="https://fabio-monreal.vercel.app/en" />
+    <xhtml:link rel="alternate"
                 hreflang="x-default"
-                rel="alternate" />
+                href="https://fabio-monreal.vercel.app/" />
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- Versão EN -->
+  <!-- EN -->
   <url>
     <loc>https://fabio-monreal.vercel.app/en</loc>
-    <xhtml:link href="https://fabio-monreal.vercel.app/"
+    <xhtml:link rel="alternate"
                 hreflang="pt-BR"
-                rel="alternate" />
-    <xhtml:link href="https://fabio-monreal.vercel.app/en"
+                href="https://fabio-monreal.vercel.app/" />
+    <xhtml:link rel="alternate"
                 hreflang="en-US"
-                rel="alternate" />
-    <xhtml:link href="https://fabio-monreal.vercel.app/"
+                href="https://fabio-monreal.vercel.app/en" />
+    <xhtml:link rel="alternate"
                 hreflang="x-default"
-                rel="alternate" />
+                href="https://fabio-monreal.vercel.app/" />
     <lastmod>2026-05-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
