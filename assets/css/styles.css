@@ -6,6 +6,11 @@
   --accent: #165d84;
   --line: #d8e0e6;
   --shadow: 0 10px 24px rgba(16, 33, 47, 0.08);
+  /* Placas sociais — alinhadas ao favicon (dark academia) */
+  --social-plaque-bg: #0b0e0d;
+  --social-plaque-bg-hover: #101612;
+  --social-plaque-border: #2d261c;
+  --social-plaque-glow: rgba(201, 170, 91, 0.22);
 }
 *,
 *::before,
@@ -48,11 +53,88 @@ h1 {
   font-size: 2rem;
   line-height: 1.1;
 }
-.hero h1 {
+.hero-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  width: 100%;
+}
+.hero-h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+.hero-social {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+.hero-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  /* Mesmo enquadramento visual que .hero-brand-mark (favicon ao lado do nome) */
+  width: 1.75rem;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  padding: 5px;
+  border-radius: 0.4rem;
+  line-height: 0;
+  background: var(--social-plaque-bg);
+  border: 1px solid var(--social-plaque-border);
+  box-shadow:
+    inset 0 0 0 1px rgba(80, 70, 54, 0.28),
+    0 1px 3px rgba(0, 0, 0, 0.18);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.hero-social-link:hover {
+  transform: translateY(-1px);
+  background: var(--social-plaque-bg-hover);
+  border-color: #3d3428;
+  box-shadow:
+    inset 0 0 0 1px rgba(201, 170, 91, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.22),
+    0 0 12px var(--social-plaque-glow);
+}
+.hero-social-link:focus-visible {
+  outline: 2px solid #c9aa5b;
+  outline-offset: 2px;
+}
+.hero-social-icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+}
+svg.hero-social-icon {
+  vertical-align: middle;
+  shape-rendering: geometricPrecision;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-social-link,
+  .hero-social-icon {
+    transition: none;
+  }
+  .hero-social-link:hover {
+    transform: none;
+  }
 }
 .hero-brand-mark {
   width: 1.75rem;
@@ -83,21 +165,21 @@ h1 {
     transform: none;
   }
 }
-.hero h1 .name {
+.hero-h1 .name {
   font-weight: 700;
 }
-.hero h1 .lang-switch {
+.hero-h1 .lang-switch {
   font-weight: 400;
   font-size: 0.72rem;
   color: var(--muted);
 }
-.hero h1 .lang-switch a {
+.hero-h1 .lang-switch a {
   color: inherit;
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
   text-underline-offset: 2px;
 }
-.hero h1 .lang-switch a:hover {
+.hero-h1 .lang-switch a:hover {
   color: var(--accent);
   text-decoration-color: var(--accent);
 }

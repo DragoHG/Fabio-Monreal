@@ -54,6 +54,10 @@ h1 {
   display: none !important;
 }
 
+.hero-social {
+  display: none !important;
+}
+
 h2 {
   font-size: 11px !important;
   letter-spacing: 0.04em !important;
