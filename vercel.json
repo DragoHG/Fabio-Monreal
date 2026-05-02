@@ -1,23 +1,20 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/en", "destination": "/index_en.html" },
-    { "source": "/en/", "destination": "/index_en.html" }
-  ],
-  "headers": [
     {
       "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml; charset=utf-8"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600, s-maxage=86400"
-        }
-      ]
+      "destination": "/api/sitemap"
     },
+    {
+      "source": "/en",
+      "destination": "/index_en.html"
+    },
+    {
+      "source": "/en/",
+      "destination": "/index_en.html"
+    }
+  ],
+  "headers": [
     {
       "source": "/robots.txt",
       "headers": [
