@@ -57,8 +57,7 @@ def repair_en_mojibake(en_source: Path) -> None:
 
 
 DOCUMENT_TITLE = (
-    "Fábio Monreal | Senior Multi-Cloud & Security Architect | "
-    "Incident Commander & CISO Advisor | FinOps | Sovereign GenAI & MLOps | System Design & SRE"
+    "Fábio Monreal | Multi-Cloud & Security Architect | IC | CISO | FinOps"
 )
 
 # Alinhado às meta keywords de index.html / index_en.html (produção).
