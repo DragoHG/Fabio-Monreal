@@ -1,0 +1,41 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<BaseLayout
+  title="Publicações | Fábio Monreal"
+  description="Arquivo de publicações técnicas em cloud, segurança, FinOps, SRE e GenAI soberana."
+  ogImage="/images/og/home.png"
+  keywords={["publicações técnicas", "cloud", "segurança", "FinOps"]}
+  canonicalURL="https://fabiomonreal.com/posts/"
+  currentPath="/posts/"
+>
+  <main>
+    <section class="section">
+      <div class="shell">
+        <div class="page-intro">
+          <p class="eyebrow">Arquivo editorial</p>
+          <h1 class="page-intro__title">Publicações técnicas e visões executivas.</h1>
+          <p class="page-intro__copy">
+            Todos os artigos desta página são geridos por arquivos Markdown versionados no GitHub em
+            <code>/content/posts</code>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="shell archive-grid">
+        {posts.map((post) => (
+          <PostCard href={`/posts/${post.slug}/`} data={post.data} />
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

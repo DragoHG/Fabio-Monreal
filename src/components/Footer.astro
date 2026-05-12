@@ -1,0 +1,20 @@
+---
+import { profile } from "../lib/about-content";
+---
+
+<footer class="site-footer" id="contato">
+  <div class="shell site-footer__inner">
+    <div>
+      <p class="eyebrow">Contato e presença digital</p>
+      <h2 class="footer-title">Conexões com foco em arquitetura, segurança e liderança técnica.</h2>
+    </div>
+
+    <div class="footer-links">
+      <a href={profile.linkedin} target="_blank" rel="noreferrer noopener">LinkedIn</a>
+      <a href={profile.github} target="_blank" rel="noreferrer noopener">GitHub</a>
+      <a href={profile.credly} target="_blank" rel="noreferrer noopener">Credly</a>
+      <a href={profile.medium} target="_blank" rel="noreferrer noopener">Medium</a>
+      <a href={`mailto:${profile.email}`}>{profile.email}</a>
+    </div>
+  </div>
+</footer>

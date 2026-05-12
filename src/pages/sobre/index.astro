@@ -1,0 +1,171 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { aboutContent, profile } from "../../lib/about-content";
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  jobTitle: profile.role,
+  email: profile.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "São Paulo",
+    addressRegion: "SP",
+    addressCountry: "BR"
+  },
+  sameAs: [profile.linkedin, profile.credly, profile.github, profile.medium, profile.devto],
+  url: "https://fabiomonreal.com/sobre/"
+};
+---
+
+<BaseLayout
+  title="Sobre Fábio Monreal | Arquitetura, Segurança e Resiliência"
+  description={aboutContent.pt.intro}
+  ogImage="/images/og/about.png"
+  keywords={[
+    "Fábio Monreal",
+    "sobre",
+    "arquiteto multi-cloud",
+    "incident commander",
+    "ciso advisor"
+  ]}
+  canonicalURL="https://fabiomonreal.com/sobre/"
+  schema={schema}
+  currentPath="/sobre/"
+>
+  <main>
+    <section class="section">
+      <div class="shell">
+        <div class="page-intro">
+          <p class="eyebrow">Sobre Fábio Monreal</p>
+          <h1 class="page-intro__title">Arquitetura de alta criticidade com governança, resposta e visão executiva.</h1>
+          <p class="page-intro__copy">{aboutContent.pt.intro}</p>
+
+          <div class="button-row">
+            <a class="button button--primary" href={profile.linkedin} target="_blank" rel="noreferrer noopener">
+              Conectar no LinkedIn
+            </a>
+            <a class="button button--ghost" href={`mailto:${profile.email}`}>
+              Entrar em contato
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="shell cards-grid">
+        {aboutContent.pt.skills.map((skill) => (
+          <article class="content-card">
+            <p class="eyebrow">Ecossistema técnico</p>
+            <h2>{skill.title}</h2>
+            <p>{skill.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell split-grid">
+        <div class="content-card">
+          <p class="eyebrow">Resumo executivo</p>
+          {aboutContent.pt.summary.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+
+          <ul class="meta-list">
+            {aboutContent.pt.expertise.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="content-card">
+          <p class="eyebrow">Links estratégicos</p>
+          <ul class="list-reset timeline">
+            <li class="timeline-card"><strong>LinkedIn</strong><br />{profile.linkedin}</li>
+            <li class="timeline-card"><strong>Credly</strong><br />{profile.credly}</li>
+            <li class="timeline-card"><strong>GitHub</strong><br />{profile.github}</li>
+            <li class="timeline-card"><strong>Microsoft Learn</strong><br />{profile.microsoftLearn}</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <p class="eyebrow">Experiência de alto impacto</p>
+        <div class="cards-grid">
+          {aboutContent.pt.impact.map((item) => (
+            <article class="content-card">
+              <h2>{item.title}</h2>
+              <p>{item.focus}</p>
+              <ul>
+                {item.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell split-grid">
+        <div class="content-card">
+          <p class="eyebrow">Certificações</p>
+          <h2>Credenciais e badges</h2>
+          <ul>
+            {aboutContent.pt.certifications.official.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <h3>Qualificações</h3>
+          <ul>
+            {aboutContent.pt.certifications.qualifications.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+          <h3>Especializações</h3>
+          <ul>
+            {aboutContent.pt.certifications.specializations.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="content-card">
+          <p class="eyebrow">Formação</p>
+          <h2>Base técnica e de governança</h2>
+          <ul class="list-reset timeline">
+            {aboutContent.pt.education.map((item) => (
+              <li class="timeline-card">
+                <h3>{item.title}</h3>
+                <p>
+                  <strong>{item.institution}</strong>
+                </p>
+                <p>{item.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell">
+        <p class="eyebrow">Projetos e portfólio</p>
+        <div class="cards-grid">
+          {aboutContent.pt.projects.map((project) => (
+            <article class="content-card">
+              <h2>{project.title}</h2>
+              <p>{project.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

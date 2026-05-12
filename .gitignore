@@ -28,6 +28,15 @@ ENV/
 
 .poetry/cache/
 
+# Node / Astro
+node_modules/
+.astro/
+dist/
+
+# Ferramentas locais
+.cursor/
+.stitch/
+
 # SO
 .DS_Store
 Thumbs.db

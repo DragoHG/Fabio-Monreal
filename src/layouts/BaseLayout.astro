@@ -1,0 +1,58 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import SeoHead from "../components/SeoHead.astro";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../lib/site";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+  ogImage?: string;
+  keywords?: string[];
+  type?: "website" | "article";
+  lang?: "pt-BR" | "en-US";
+  publishedTime?: string;
+  schema?: Record<string, unknown>;
+  currentPath?: string;
+}
+
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  canonicalURL,
+  ogImage,
+  keywords = [],
+  type = "website",
+  lang = "pt-BR",
+  publishedTime,
+  schema,
+  currentPath = Astro.url.pathname
+} = Astro.props;
+
+const resolvedCanonical =
+  canonicalURL ?? new URL(Astro.url.pathname, Astro.site ?? SITE_URL).toString();
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <SeoHead
+      title={title}
+      description={description}
+      canonicalURL={resolvedCanonical}
+      ogImage={ogImage}
+      keywords={keywords}
+      type={type}
+      lang={lang}
+      publishedTime={publishedTime}
+      schema={schema}
+    />
+  </head>
+  <body>
+    <Header currentPath={currentPath} lang={lang} />
+    <slot />
+    <Footer />
+  </body>
+</html>

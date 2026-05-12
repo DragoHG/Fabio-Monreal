@@ -1,0 +1,55 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { aboutContent, profile } from "../../../lib/about-content";
+---
+
+<BaseLayout
+  title="About Fábio Monreal | Cloud, Security and Resilience"
+  description={aboutContent.en.intro}
+  ogImage="/images/og/about.png"
+  keywords={["about", "multi-cloud architect", "security architect", "incident commander"]}
+  canonicalURL="https://fabiomonreal.com/en/sobre/"
+  currentPath="/en/sobre/"
+  lang="en-US"
+>
+  <main>
+    <section class="section">
+      <div class="shell">
+        <div class="page-intro">
+          <p class="eyebrow">About</p>
+          <h1 class="page-intro__title">Architecture, cyber resilience, and executive advisory for high-stakes environments.</h1>
+          <p class="page-intro__copy">{aboutContent.en.intro}</p>
+
+          <div class="button-row">
+            <a class="button button--primary" href={profile.linkedin} target="_blank" rel="noreferrer noopener">
+              Connect on LinkedIn
+            </a>
+            <a class="button button--ghost" href={`mailto:${profile.email}`}>
+              Contact
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="shell split-grid">
+        <div class="content-card">
+          <p class="eyebrow">Executive summary</p>
+          {aboutContent.en.summary.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+
+        <div class="content-card">
+          <p class="eyebrow">Core expertise</p>
+          <ul class="list-reset timeline">
+            {aboutContent.en.expertise.map((item) => (
+              <li class="timeline-card">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

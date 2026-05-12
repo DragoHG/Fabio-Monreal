@@ -1,0 +1,21 @@
+{
+  "name": "fabio-monreal-authority-hub",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Hub de autoridade técnica em Astro para Fábio Monreal.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.3.1",
+    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/vercel": "^10.0.6"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

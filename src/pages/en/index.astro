@@ -1,0 +1,39 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { aboutContent, profile } from "../../lib/about-content";
+
+---
+
+<BaseLayout
+  title="Fábio Monreal | Technical Authority Hub"
+  description={aboutContent.en.intro}
+  ogImage="/images/og/home.png"
+  keywords={["cloud architecture", "cybersecurity", "FinOps", "technical leadership"]}
+  canonicalURL="https://fabiomonreal.com/en/"
+  currentPath="/en/"
+  lang="en-US"
+>
+  <main>
+    <section class="section">
+      <div class="shell hero__wrap">
+        <div>
+          <p class="eyebrow">Technical Authority Hub</p>
+          <h1 class="hero__title">{profile.name}</h1>
+          <p class="hero__copy">{aboutContent.en.intro}</p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="/en/sobre/">About Fábio Monreal</a>
+            <a class="button button--ghost" href="/posts/">Read publications</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="eyebrow">Focus areas</p>
+          {aboutContent.en.summary.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

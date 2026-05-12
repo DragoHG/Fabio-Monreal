@@ -1,0 +1,127 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PostCard from "../components/PostCard.astro";
+import { aboutContent, profile } from "../lib/about-content";
+import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_TITLE } from "../lib/site";
+
+const posts = (await getCollection("posts")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+
+const [featured, ...rest] = posts;
+const secondary = rest.slice(0, 2);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: SITE_TITLE,
+  url: "https://fabiomonreal.com/",
+  description: SITE_DESCRIPTION,
+  author: {
+    "@type": "Person",
+    name: profile.name,
+    url: "https://fabiomonreal.com/sobre/",
+    sameAs: [profile.linkedin, profile.github, profile.medium, profile.devto]
+  }
+};
+---
+
+<BaseLayout
+  title={SITE_TITLE}
+  description={SITE_DESCRIPTION}
+  ogImage={DEFAULT_OG_IMAGE}
+  keywords={[
+    "arquiteto cloud",
+    "multi-cloud",
+    "cibersegurança",
+    "FinOps",
+    "GenAI soberana"
+  ]}
+  schema={schema}
+  currentPath="/"
+>
+  <main>
+    <section class="hero">
+      <div class="shell hero__wrap">
+        <div>
+          <p class="eyebrow">Hub de Autoridade Técnica</p>
+          <h1 class="hero__title">{profile.name}</h1>
+          <p class="hero__copy">
+            {profile.role}. Publicações técnicas, visão executiva e arquitetura de alta criticidade
+            com foco em cloud, segurança, FinOps, SRE e soberania de dados.
+          </p>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="/sobre/">Sobre Fábio Monreal</a>
+            <a class="button button--ghost" href="/posts/">Ver publicações</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <p class="eyebrow">Áreas de atuação</p>
+          <p class="section-copy">{aboutContent.pt.intro}</p>
+          <ul class="hero-panel__list">
+            <li>Multi-Cloud</li>
+            <li>Segurança</li>
+            <li>FinOps</li>
+            <li>Incident Response</li>
+            <li>GenAI Soberana</li>
+            <li>SRE</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="shell">
+        <div class="page-intro">
+          <p class="eyebrow">Publicações em destaque</p>
+          <h2 class="section-title">Os posts mais recentes ocupam os blocos principais da Home.</h2>
+          <p class="section-copy">
+            A estrutura replica a lógica editorial do layout do Stitch: um destaque principal e
+            cards secundários para próximos artigos, todos alimentados por Markdown em
+            <code>/content/posts</code>.
+          </p>
+        </div>
+
+        <div class="insight-grid section--tight">
+          {featured && (
+            <PostCard href={`/posts/${featured.slug}/`} data={featured.data} variant="lead" />
+          )}
+
+          <div class="stack-grid">
+            {secondary.map((post) => (
+              <PostCard href={`/posts/${post.slug}/`} data={post.data} variant="stacked" />
+            ))}
+          </div>
+        </div>
+
+        <div class="button-row">
+          <a class="subtle-link" href="/posts/">Ver todas as publicações</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell summary-grid">
+        <div class="content-card">
+          <p class="eyebrow">Resumo executivo</p>
+          <h2 class="section-title">Arquitetura, segurança e continuidade com viés executivo.</h2>
+          {aboutContent.pt.summary.slice(0, 2).map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+
+        <div class="content-card">
+          <p class="eyebrow">Tópicos recorrentes</p>
+          <ul class="list-reset timeline">
+            {aboutContent.pt.expertise.map((item) => (
+              <li class="timeline-card">{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

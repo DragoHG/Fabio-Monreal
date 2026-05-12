@@ -1,0 +1,44 @@
+---
+import { formatDate } from "../lib/site";
+
+interface EntryData {
+  title: string;
+  description: string;
+  date: Date;
+  ogImage: string;
+  keywords: string[];
+}
+
+interface Props {
+  href: string;
+  data: EntryData;
+  variant?: "lead" | "stacked" | "list";
+}
+
+const { href, data, variant = "list" } = Astro.props;
+---
+
+<article class:list={["post-card", `post-card--${variant}`]}>
+  {variant === "lead" && (
+    <a class="post-card__media" href={href}>
+      <img src={data.ogImage} alt={data.title} loading="lazy" />
+    </a>
+  )}
+
+  <div class="post-card__body">
+    <div class="post-card__meta">
+      <span>{formatDate(data.date)}</span>
+      <span>{data.keywords[0]}</span>
+    </div>
+
+    <h3 class="post-card__title">
+      <a href={href}>{data.title}</a>
+    </h3>
+
+    <p class="post-card__description">{data.description}</p>
+
+    <a class="post-card__cta" href={href}>
+      Ler publicação
+    </a>
+  </div>
+</article>

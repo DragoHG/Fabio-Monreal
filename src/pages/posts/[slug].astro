@@ -1,0 +1,67 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { formatDate } from "../../lib/site";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("posts");
+
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.date.toISOString(),
+  image: [`https://fabiomonreal.com${post.data.ogImage}`],
+  author: {
+    "@type": "Person",
+    name: "Fábio Monreal"
+  },
+  publisher: {
+    "@type": "Person",
+    name: "Fábio Monreal"
+  },
+  mainEntityOfPage: post.data.canonicalURL
+};
+---
+
+<BaseLayout
+  title={`${post.data.title} | Fábio Monreal`}
+  description={post.data.description}
+  canonicalURL={post.data.canonicalURL}
+  ogImage={post.data.ogImage}
+  keywords={post.data.keywords}
+  type="article"
+  publishedTime={post.data.date.toISOString()}
+  schema={schema}
+  currentPath="/posts/"
+>
+  <main class="post-shell">
+    <section class="section section--tight">
+      <div class="post-header">
+        <p class="eyebrow">Publicação técnica</p>
+        <h1 class="post-header__title">{post.data.title}</h1>
+        <p class="page-intro__copy">{post.data.description}</p>
+        <ul class="meta-list">
+          <li>{formatDate(post.data.date)}</li>
+          {post.data.keywords.map((keyword) => (
+            <li>{keyword}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    <article class="prose">
+      <Content />
+    </article>
+  </main>
+</BaseLayout>

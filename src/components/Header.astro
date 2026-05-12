@@ -1,0 +1,50 @@
+---
+import { profile } from "../lib/about-content";
+
+interface Props {
+  currentPath?: string;
+  lang?: "pt-BR" | "en-US";
+}
+
+const { currentPath = "/", lang = "pt-BR" } = Astro.props;
+
+const links =
+  lang === "en-US"
+    ? [
+        { href: "/en/", label: "Home" },
+        { href: "/posts/", label: "Publications" },
+        { href: "/en/sobre/", label: "About" },
+        { href: profile.linkedin, label: "Connect", external: true }
+      ]
+    : [
+        { href: "/", label: "Home" },
+        { href: "/posts/", label: "Publicações" },
+        { href: "/sobre/", label: "Sobre" },
+        { href: profile.linkedin, label: "Contato", external: true }
+      ];
+---
+
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href={lang === "en-US" ? "/en/" : "/"}>
+      <span class="brand__mark">MR</span>
+      <span class="brand__name">{profile.name}</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Principal">
+      {links.map((link) => {
+        const active = !link.external && currentPath === link.href;
+        return (
+          <a
+            class:list={["site-nav__link", { "is-active": active }]}
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noreferrer noopener" : undefined}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+    </nav>
+  </div>
+</header>
