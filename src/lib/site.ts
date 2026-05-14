@@ -15,11 +15,3 @@ export function absoluteUrl(path: string) {
 
   return new URL(path, SITE_URL).toString();
 }
-
-export function formatDate(date: Date) {
-  return new Intl.DateTimeFormat("pt-BR", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric"
-  }).format(date);
-}

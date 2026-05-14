@@ -1,5 +1,5 @@
 ---
-import { formatDate } from "../lib/site";
+import { formatPostDate } from "../lib/posts";
 
 interface EntryData {
   title: string;
@@ -7,15 +7,19 @@ interface EntryData {
   date: Date;
   ogImage: string;
   keywords: string[];
+  lang: "pt-BR" | "en-US";
 }
 
 interface Props {
   href: string;
   data: EntryData;
   variant?: "lead" | "stacked" | "list";
+  ctaLabel?: string;
 }
 
-const { href, data, variant = "list" } = Astro.props;
+const { href, data, variant = "list", ctaLabel } = Astro.props;
+const defaultCta = data.lang === "en-US" ? "Read article" : "Ler publicação";
+const cta = ctaLabel ?? defaultCta;
 ---
 
 <article class:list={["post-card", `post-card--${variant}`]}>
@@ -27,7 +31,7 @@ const { href, data, variant = "list" } = Astro.props;
 
   <div class="post-card__body">
     <div class="post-card__meta">
-      <span>{formatDate(data.date)}</span>
+      <span>{formatPostDate(data.date, data.lang)}</span>
       <span>{data.keywords[0]}</span>
     </div>
 
@@ -38,7 +42,7 @@ const { href, data, variant = "list" } = Astro.props;
     <p class="post-card__description">{data.description}</p>
 
     <a class="post-card__cta" href={href}>
-      Ler publicação
+      {cta}
     </a>
   </div>
 </article>

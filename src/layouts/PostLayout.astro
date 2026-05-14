@@ -1,0 +1,43 @@
+---
+import { formatPostDate, type PostLang } from "../lib/posts";
+
+interface Props {
+  lang: PostLang;
+  title: string;
+  description: string;
+  date: Date;
+  keywords: string[];
+  translationLink?: { href: string; label: string };
+}
+
+const { lang, title, description, date, keywords, translationLink } = Astro.props;
+
+const eyebrow = lang === "en-US" ? "Technical publication" : "Publicação técnica";
+---
+
+<main class="post-shell">
+  <section class="section section--tight">
+    <div class="post-header">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1 class="post-header__title">{title}</h1>
+      <p class="page-intro__copy">{description}</p>
+      <ul class="meta-list">
+        <li>{formatPostDate(date, lang)}</li>
+        {keywords.map((keyword) => (
+          <li>{keyword}</li>
+        ))}
+      </ul>
+      {translationLink && (
+        <p class="post-translation-link">
+          <a class="subtle-link" href={translationLink.href}>{translationLink.label}</a>
+        </p>
+      )}
+    </div>
+  </section>
+
+  <article
+    class="prose prose-invert max-w-none font-sans prose-headings:font-serif prose-a:text-[#e9c349] prose-strong:text-[#e2e2e2] prose-code:text-[#e2e2e2]"
+  >
+    <slot />
+  </article>
+</main>

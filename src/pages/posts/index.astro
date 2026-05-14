@@ -2,10 +2,16 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PostCard from "../../components/PostCard.astro";
+import { postPublicPath, postsByLang } from "../../lib/posts";
 
-const posts = (await getCollection("posts")).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const all = await getCollection("posts");
+const posts = postsByLang(all, "pt-BR");
+const postsEn = postsByLang(all, "en-US");
+const leadTitles = posts.slice(0, 3).map((p) => p.data.title);
+const leadLine =
+  leadTitles.length > 0
+    ? `Comece por: ${leadTitles.join(" · ")}.`
+    : "Os próximos artigos em português surgirão aqui assim que forem publicados.";
 ---
 
 <BaseLayout
@@ -21,10 +27,11 @@ const posts = (await getCollection("posts")).sort(
       <div class="shell">
         <div class="page-intro">
           <p class="eyebrow">Arquivo editorial</p>
-          <h1 class="page-intro__title">Publicações técnicas e visões executivas.</h1>
+          <h1 class="page-intro__title">Ideias prontas para ler agora</h1>
           <p class="page-intro__copy">
-            Todos os artigos desta página são geridos por arquivos Markdown versionados no GitHub em
-            <code>/content/posts</code>.
+            {leadLine} Abaixo está tudo em português, do mais recente para o mais antigo. Há também
+            conteúdo em inglês no <a class="subtle-link" href="/en/posts/">arquivo em inglês</a>, útil
+            quando o tema for mais global ou não existir tradução ainda.
           </p>
         </div>
       </div>
@@ -33,9 +40,29 @@ const posts = (await getCollection("posts")).sort(
     <section class="section section--tight">
       <div class="shell archive-grid">
         {posts.map((post) => (
-          <PostCard href={`/posts/${post.slug}/`} data={post.data} />
+          <PostCard href={postPublicPath(post)} data={post.data} />
         ))}
       </div>
     </section>
+
+    {postsEn.length > 0 && (
+      <section class="section section--tight">
+        <div class="shell">
+          <div class="page-intro">
+            <p class="eyebrow">English</p>
+            <h2 class="section-title">Publicações em inglês</h2>
+            <p class="section-copy">
+              Textos com o mesmo rigor técnico, no idioma que costuma ser o padrão para alcance
+              internacional. Lista completa em <a class="subtle-link" href="/en/posts/">/en/posts/</a>.
+            </p>
+          </div>
+          <div class="archive-grid">
+            {postsEn.map((post) => (
+              <PostCard href={postPublicPath(post)} data={post.data} ctaLabel="Read article (English)" />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
   </main>
 </BaseLayout>

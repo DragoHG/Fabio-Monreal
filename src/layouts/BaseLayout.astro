@@ -1,8 +1,10 @@
 ---
+import type { LocalePair } from "../lib/locale-switch";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import SeoHead from "../components/SeoHead.astro";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../lib/site";
+import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
 interface Props {
@@ -10,12 +12,19 @@ interface Props {
   description?: string;
   canonicalURL?: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   keywords?: string[];
   type?: "website" | "article";
   lang?: "pt-BR" | "en-US";
   publishedTime?: string;
   schema?: Record<string, unknown>;
   currentPath?: string;
+  hreflangAlternates?: { hreflang: string; href: string }[];
+  xDefaultHref?: string;
+  ogLocaleAlternate?: string;
+  localePair?: LocalePair;
 }
 
 const {
@@ -23,12 +32,19 @@ const {
   description = SITE_DESCRIPTION,
   canonicalURL,
   ogImage,
+  ogImageAlt,
+  ogImageWidth,
+  ogImageHeight,
   keywords = [],
   type = "website",
   lang = "pt-BR",
   publishedTime,
   schema,
-  currentPath = Astro.url.pathname
+  currentPath = Astro.url.pathname,
+  hreflangAlternates,
+  xDefaultHref,
+  ogLocaleAlternate,
+  localePair
 } = Astro.props;
 
 const resolvedCanonical =
@@ -38,21 +54,28 @@ const resolvedCanonical =
 <!doctype html>
 <html lang={lang}>
   <head>
+    <ClientRouter />
     <SeoHead
       title={title}
       description={description}
       canonicalURL={resolvedCanonical}
       ogImage={ogImage}
+      ogImageAlt={ogImageAlt}
+      ogImageWidth={ogImageWidth}
+      ogImageHeight={ogImageHeight}
       keywords={keywords}
       type={type}
       lang={lang}
       publishedTime={publishedTime}
       schema={schema}
+      hreflangAlternates={hreflangAlternates}
+      xDefaultHref={xDefaultHref}
+      ogLocaleAlternate={ogLocaleAlternate}
     />
   </head>
   <body>
-    <Header currentPath={currentPath} lang={lang} />
+    <Header currentPath={currentPath} lang={lang} localePair={localePair} />
     <slot />
-    <Footer />
+    <Footer lang={lang} />
   </body>
 </html>

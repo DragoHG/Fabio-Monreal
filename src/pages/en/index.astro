@@ -1,38 +1,140 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import PostCard from "../../components/PostCard.astro";
 import { aboutContent, profile } from "../../lib/about-content";
+import { postPublicPath, postsByLang } from "../../lib/posts";
+import { getCollection } from "astro:content";
+import { SITE_URL } from "../../lib/site";
 
+const all = await getCollection("posts");
+const enPosts = postsByLang(all, "en-US");
+const [featured, ...rest] = enPosts;
+const secondary = rest.slice(0, 2);
+const recentForTopics = enPosts.slice(0, 3);
+const topicChips = [...new Set(recentForTopics.flatMap((p) => p.data.keywords))].slice(0, 6);
+const recentTitles = recentForTopics.map((p) => p.data.title);
+const destaqueSubtitle =
+  recentTitles.length > 0
+    ? `Start with what just landed: ${recentTitles.join(" · ")}.`
+    : "New articles will appear here as soon as they are published.";
+
+const enHomeTitle = "Fábio Monreal | Technical Authority Hub";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: enHomeTitle,
+  url: new URL("/en/", SITE_URL).href,
+  description: aboutContent.en.intro,
+  author: {
+    "@type": "Person",
+    name: profile.name,
+    url: new URL("/en/sobre/", SITE_URL).href,
+    sameAs: [profile.linkedin, profile.github, profile.medium, profile.devto]
+  }
+};
 ---
 
 <BaseLayout
-  title="Fábio Monreal | Technical Authority Hub"
+  title={enHomeTitle}
   description={aboutContent.en.intro}
   ogImage="/images/og/home.png"
   keywords={["cloud architecture", "cybersecurity", "FinOps", "technical leadership"]}
-  canonicalURL="https://fabiomonreal.com/en/"
+  canonicalURL={new URL("/en/", SITE_URL).href}
   currentPath="/en/"
   lang="en-US"
+  schema={schema}
 >
-  <main>
-    <section class="section">
-      <div class="shell hero__wrap">
-        <div>
-          <p class="eyebrow">Technical Authority Hub</p>
-          <h1 class="hero__title">{profile.name}</h1>
-          <p class="hero__copy">{aboutContent.en.intro}</p>
+  <main class="landing-main">
+    <section class="hero hero--viewport">
+      <div class="shell hero__shell">
+        <div class="hero__wrap">
+          <div class="hero__intro">
+            <p class="eyebrow">Technical Authority Hub</p>
+            <p class="hero__given">Fábio</p>
+            <h1 class="hero__title">Monreal</h1>
+            <p class="hero__copy">{aboutContent.en.intro}</p>
 
-          <div class="hero__actions">
-            <a class="button button--primary" href="/en/sobre/">About Fábio Monreal</a>
-            <a class="button button--ghost" href="/posts/">Read publications</a>
+            <div class="hero__actions">
+              <a class="button button--primary" href="/en/sobre/">About</a>
+              <a class="button button--ghost" href="/en/posts/">Read publications</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <p class="eyebrow">Focus areas</p>
+            {aboutContent.en.summary.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+          </aside>
+        </div>
+      </div>
+      <div class="hero__fade" aria-hidden="true"></div>
+      <a class="hero-scroll" href="#featured" aria-label="Scroll to featured publications">
+        <span class="hero-scroll__label">Explore</span>
+        <svg class="hero-scroll__icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 9l6 6 6-6"></path>
+        </svg>
+      </a>
+    </section>
+
+    <div class="landing-separator" aria-hidden="true"></div>
+
+    <section class="section section--tight section--band" id="featured">
+      <div class="shell">
+        <div class="page-intro">
+          <p class="eyebrow">Featured publications</p>
+          <h2 class="section-title">What to read next</h2>
+          <p class="section-copy">
+            {destaqueSubtitle} Portuguese articles live on the{" "}
+            <a class="subtle-link" href="/">Portuguese home</a> and in the{" "}
+            <a class="subtle-link" href="/posts/">Portuguese archive</a>.
+          </p>
+        </div>
+
+        <div class="insight-grid section--tight">
+          {featured && <PostCard href={postPublicPath(featured)} data={featured.data} variant="lead" />}
+
+          <div class="stack-grid">
+            {secondary.map((post) => (
+              <PostCard href={postPublicPath(post)} data={post.data} variant="stacked" />
+            ))}
           </div>
         </div>
 
-        <aside class="hero-panel">
-          <p class="eyebrow">Focus areas</p>
-          {aboutContent.en.summary.map((paragraph) => (
+        <div class="button-row">
+          <a class="subtle-link" href="/en/posts/">All publications in English</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--surface">
+      <div class="shell summary-grid">
+        <div class="content-card">
+          <p class="eyebrow">Executive summary</p>
+          <h2 class="section-title">Architecture, security, and continuity with an executive lens.</h2>
+          {aboutContent.en.summary.slice(0, 2).map((paragraph) => (
             <p>{paragraph}</p>
           ))}
-        </aside>
+        </div>
+
+        <div class="content-card">
+          <p class="eyebrow">Themes in the latest English posts</p>
+          <h2 class="section-title">Keywords from the newest entries</h2>
+          <p class="section-copy">
+            Keywords from the three most recent English posts in this archive.
+          </p>
+          <ul class="list-reset topic-chips">
+            {topicChips.map((topic) => (
+              <li>{topic}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   </main>

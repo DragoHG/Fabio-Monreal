@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import PostCard from "../../../components/PostCard.astro";
+import { postPublicPath, postsByLang } from "../../../lib/posts";
+
+const all = await getCollection("posts");
+const posts = postsByLang(all, "en-US");
+const leadTitles = posts.slice(0, 3).map((p) => p.data.title);
+const leadLine =
+  leadTitles.length > 0
+    ? `Start here: ${leadTitles.join(" · ")}.`
+    : "English articles will show up here as soon as they are published.";
+---
+
+<BaseLayout
+  title="Publications | Fábio Monreal"
+  description="Technical articles on cloud architecture, security, FinOps, SRE, and sovereign GenAI."
+  ogImage="/images/og/home.png"
+  keywords={["technical publications", "cloud", "security", "FinOps"]}
+  canonicalURL="https://fabiomonreal.com/en/posts/"
+  currentPath="/en/posts/"
+  lang="en-US"
+>
+  <main>
+    <section class="section">
+      <div class="shell">
+        <div class="page-intro">
+          <p class="eyebrow">Editorial archive</p>
+          <h1 class="page-intro__title">Writing you can open right away</h1>
+          <p class="page-intro__copy">
+            {leadLine} Everything below is in English, newest first. Portuguese pieces live in the{" "}
+            <a class="subtle-link" href="/posts/">Portuguese archive</a> when you need the local context or a
+            translation is not available yet.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--tight">
+      <div class="shell archive-grid">
+        {posts.map((post) => (
+          <PostCard href={postPublicPath(post)} data={post.data} />
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

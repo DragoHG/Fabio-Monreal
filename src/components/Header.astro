@@ -1,18 +1,20 @@
 ---
 import { profile } from "../lib/about-content";
+import { resolveLocalePair, type LocalePair, type SiteLang } from "../lib/locale-switch";
 
 interface Props {
   currentPath?: string;
-  lang?: "pt-BR" | "en-US";
+  lang?: SiteLang;
+  localePair?: LocalePair;
 }
 
-const { currentPath = "/", lang = "pt-BR" } = Astro.props;
+const { currentPath = "/", lang = "pt-BR", localePair } = Astro.props;
 
 const links =
   lang === "en-US"
     ? [
         { href: "/en/", label: "Home" },
-        { href: "/posts/", label: "Publications" },
+        { href: "/en/posts/", label: "Publications" },
         { href: "/en/sobre/", label: "About" },
         { href: profile.linkedin, label: "Connect", external: true }
       ]
@@ -22,6 +24,9 @@ const links =
         { href: "/sobre/", label: "Sobre" },
         { href: profile.linkedin, label: "Contato", external: true }
       ];
+
+const { ptPath, enPath } = resolveLocalePair(currentPath, lang, localePair);
+const ariaNav = lang === "en-US" ? "Language" : "Idioma";
 ---
 
 <header class="site-header">
@@ -31,20 +36,49 @@ const links =
       <span class="brand__name">{profile.name}</span>
     </a>
 
-    <nav class="site-nav" aria-label="Principal">
-      {links.map((link) => {
-        const active = !link.external && currentPath === link.href;
-        return (
-          <a
-            class:list={["site-nav__link", { "is-active": active }]}
-            href={link.href}
-            target={link.external ? "_blank" : undefined}
-            rel={link.external ? "noreferrer noopener" : undefined}
-          >
-            {link.label}
-          </a>
-        );
-      })}
-    </nav>
+    <div class="flex flex-wrap items-center justify-end gap-4 md:gap-6">
+      <nav class="site-nav" aria-label="Principal">
+        {links.map((link) => {
+          const active = !link.external && currentPath === link.href;
+          return (
+            <a
+              class:list={["site-nav__link", { "is-active": active }]}
+              href={link.href}
+              target={link.external ? "_blank" : undefined}
+              rel={link.external ? "noreferrer noopener" : undefined}
+            >
+              {link.label}
+            </a>
+          );
+        })}
+      </nav>
+
+      <nav
+        class="inline-flex shrink-0 items-center gap-1 rounded-full border border-white/10 bg-black/20 px-1.5 py-1 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#7d7d7c] backdrop-blur-sm"
+        aria-label={ariaNav}
+      >
+        <a
+          href={ptPath}
+          class:list={[
+            "rounded-full px-2 py-1 transition-colors duration-150 motion-reduce:transition-none",
+            lang === "pt-BR" ? "bg-white/10 text-[#e9c349]" : "hover:text-[#e9c349]"
+          ]}
+          lang="pt-BR"
+        >
+          PT
+        </a>
+        <span class="text-white/15" aria-hidden="true">/</span>
+        <a
+          href={enPath}
+          class:list={[
+            "rounded-full px-2 py-1 transition-colors duration-150 motion-reduce:transition-none",
+            lang === "en-US" ? "bg-white/10 text-[#e9c349]" : "hover:text-[#e9c349]"
+          ]}
+          lang="en-US"
+        >
+          EN
+        </a>
+      </nav>
+    </div>
   </div>
 </header>

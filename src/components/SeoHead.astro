@@ -6,11 +6,20 @@ interface Props {
   description?: string;
   canonicalURL: string;
   ogImage?: string;
+  ogImageAlt?: string;
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   keywords?: string[];
   type?: "website" | "article";
   lang?: string;
   publishedTime?: string;
   schema?: Record<string, unknown>;
+  /** hreflang + URL da versão alternativa (ex.: par PT/EN). */
+  hreflangAlternates?: { hreflang: string; href: string }[];
+  /** Valor de `href` para `rel="alternate" hreflang="x-default"`. */
+  xDefaultHref?: string;
+  /** Meta `og:locale:alternate` (ex.: en_US quando a página é pt-BR). */
+  ogLocaleAlternate?: string;
 }
 
 const {
@@ -18,15 +27,29 @@ const {
   description = SITE_DESCRIPTION,
   canonicalURL,
   ogImage = DEFAULT_OG_IMAGE,
+  ogImageAlt,
+  ogImageWidth,
+  ogImageHeight,
   keywords = [],
   type = "website",
   lang = "pt-BR",
   publishedTime,
-  schema
+  schema,
+  hreflangAlternates = [],
+  xDefaultHref,
+  ogLocaleAlternate
 } = Astro.props;
 
 const canonical = canonicalURL;
 const image = absoluteUrl(ogImage);
+const imageAlt = ogImageAlt ?? title;
+const ogMime = (() => {
+  const p = ogImage.toLowerCase();
+  if (p.endsWith(".png") || p.includes(".png?")) return "image/png";
+  if (p.endsWith(".webp") || p.includes(".webp?")) return "image/webp";
+  if (p.endsWith(".jpg") || p.endsWith(".jpeg") || p.includes(".jpg?")) return "image/jpeg";
+  return undefined;
+})();
 const locale = lang === "en-US" ? "en_US" : "pt_BR";
 const joinedKeywords = keywords.join(", ");
 ---
@@ -40,22 +63,32 @@ const joinedKeywords = keywords.join(", ");
 {joinedKeywords && <meta name="keywords" content={joinedKeywords} />}
 
 <link rel="canonical" href={canonical} />
+{hreflangAlternates.map((entry) => (
+  <link rel="alternate" hreflang={entry.hreflang} href={entry.href} />
+))}
+{xDefaultHref && <link rel="alternate" hreflang="x-default" href={xDefaultHref} />}
+
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
 
 <meta property="og:type" content={type} />
 <meta property="og:locale" content={locale} />
+{ogLocaleAlternate && <meta property="og:locale:alternate" content={ogLocaleAlternate} />}
 <meta property="og:site_name" content={SITE_NAME} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={image} />
 <meta property="og:image:secure_url" content={image} />
-<meta property="og:image:alt" content={title} />
+<meta property="og:image:alt" content={imageAlt} />
+{ogImageWidth != null && <meta property="og:image:width" content={String(ogImageWidth)} />}
+{ogImageHeight != null && <meta property="og:image:height" content={String(ogImageHeight)} />}
+{ogMime && <meta property="og:image:type" content={ogMime} />}
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={image} />
+<meta name="twitter:image:alt" content={imageAlt} />
 <meta name="twitter:url" content={canonical} />
 
 {type === "article" && publishedTime && (
