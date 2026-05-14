@@ -1,5 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 import type { LocalePair } from "./locale-switch";
+import type { HreflangAlternate } from "./site";
 import {
   articleJsonLd,
   findTranslationPartner,
@@ -12,7 +13,7 @@ import {
 
 export type PostPageContext = {
   schema: ReturnType<typeof articleJsonLd>;
-  hreflangAlternates: { hreflang: string; href: string }[] | undefined;
+  hreflangAlternates: HreflangAlternate[] | undefined;
   xDefaultHref: string | undefined;
   ogLocaleAlternate: string | undefined;
   translationLink: { href: string; label: string } | undefined;

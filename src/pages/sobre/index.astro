@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { aboutContent, profile } from "../../lib/about-content";
+import { SITE_URL } from "../../lib/site";
 
 const schema = {
   "@context": "https://schema.org",
@@ -15,7 +16,7 @@ const schema = {
     addressCountry: "BR"
   },
   sameAs: [profile.linkedin, profile.credly, profile.github, profile.medium, profile.devto],
-  url: "https://fabiomonreal.com/sobre/"
+  url: new URL("/sobre/", SITE_URL).href
 };
 ---
 
@@ -30,7 +31,7 @@ const schema = {
     "incident commander",
     "ciso advisor"
   ]}
-  canonicalURL="https://fabiomonreal.com/sobre/"
+  canonicalURL={new URL("/sobre/", SITE_URL).href}
   schema={schema}
   currentPath="/sobre/"
 >

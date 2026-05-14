@@ -3,7 +3,7 @@ import type { LocalePair } from "../lib/locale-switch";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import SeoHead from "../components/SeoHead.astro";
-import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "../lib/site";
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL, type HreflangAlternate } from "../lib/site";
 import { ClientRouter } from "astro:transitions";
 import "../styles/global.css";
 
@@ -21,7 +21,7 @@ interface Props {
   publishedTime?: string;
   schema?: Record<string, unknown>;
   currentPath?: string;
-  hreflangAlternates?: { hreflang: string; href: string }[];
+  hreflangAlternates?: HreflangAlternate[];
   xDefaultHref?: string;
   ogLocaleAlternate?: string;
   localePair?: LocalePair;

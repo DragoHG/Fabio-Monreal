@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { aboutContent, profile } from "../../../lib/about-content";
+import { SITE_URL } from "../../../lib/site";
 ---
 
 <BaseLayout
@@ -8,7 +9,7 @@ import { aboutContent, profile } from "../../../lib/about-content";
   description={aboutContent.en.intro}
   ogImage="/images/og/about.png"
   keywords={["about", "multi-cloud architect", "security architect", "incident commander"]}
-  canonicalURL="https://fabiomonreal.com/en/sobre/"
+  canonicalURL={new URL("/en/sobre/", SITE_URL).href}
   currentPath="/en/sobre/"
   lang="en-US"
 >

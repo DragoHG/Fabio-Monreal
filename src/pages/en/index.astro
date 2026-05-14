@@ -1,10 +1,11 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PostCard from "../../components/PostCard.astro";
-import { aboutContent, profile } from "../../lib/about-content";
+import { aboutContent } from "../../lib/about-content";
+import { enHomeWebsiteJsonLd } from "../../lib/home-schema";
 import { postPublicPath, postsByLang } from "../../lib/posts";
+import { DEFAULT_OG_IMAGE, SITE_TITLE_EN, SITE_URL } from "../../lib/site";
 import { getCollection } from "astro:content";
-import { SITE_URL } from "../../lib/site";
 
 const all = await getCollection("posts");
 const enPosts = postsByLang(all, "en-US");
@@ -18,26 +19,13 @@ const destaqueSubtitle =
     ? `Start with what just landed: ${recentTitles.join(" · ")}.`
     : "New articles will appear here as soon as they are published.";
 
-const enHomeTitle = "Fábio Monreal | Technical Authority Hub";
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: enHomeTitle,
-  url: new URL("/en/", SITE_URL).href,
-  description: aboutContent.en.intro,
-  author: {
-    "@type": "Person",
-    name: profile.name,
-    url: new URL("/en/sobre/", SITE_URL).href,
-    sameAs: [profile.linkedin, profile.github, profile.medium, profile.devto]
-  }
-};
+const schema = enHomeWebsiteJsonLd(aboutContent.en.intro);
 ---
 
 <BaseLayout
-  title={enHomeTitle}
+  title={SITE_TITLE_EN}
   description={aboutContent.en.intro}
-  ogImage="/images/og/home.png"
+  ogImage={DEFAULT_OG_IMAGE}
   keywords={["cloud architecture", "cybersecurity", "FinOps", "technical leadership"]}
   canonicalURL={new URL("/en/", SITE_URL).href}
   currentPath="/en/"
@@ -69,7 +57,11 @@ const schema = {
         </div>
       </div>
       <div class="hero__fade" aria-hidden="true"></div>
-      <a class="hero-scroll" href="#featured" aria-label="Scroll to featured publications">
+      <a
+        class="hero-scroll"
+        href="#featured"
+        aria-label="Explore: scroll to featured publications"
+      >
         <span class="hero-scroll__label">Explore</span>
         <svg class="hero-scroll__icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
           <path

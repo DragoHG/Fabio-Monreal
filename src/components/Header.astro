@@ -22,7 +22,7 @@ const links =
         { href: "/", label: "Home" },
         { href: "/posts/", label: "Publicações" },
         { href: "/sobre/", label: "Sobre" },
-        { href: profile.linkedin, label: "Contato", external: true }
+        { href: profile.linkedin, label: "Contato" }
       ];
 
 const { ptPath, enPath } = resolveLocalePair(currentPath, lang, localePair);
@@ -36,49 +36,49 @@ const ariaNav = lang === "en-US" ? "Language" : "Idioma";
       <span class="brand__name">{profile.name}</span>
     </a>
 
-    <div class="flex flex-wrap items-center justify-end gap-4 md:gap-6">
-      <nav class="site-nav" aria-label="Principal">
-        {links.map((link) => {
-          const active = !link.external && currentPath === link.href;
-          return (
-            <a
-              class:list={["site-nav__link", { "is-active": active }]}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noreferrer noopener" : undefined}
-            >
-              {link.label}
-            </a>
-          );
-        })}
-      </nav>
+    <span class="site-header__spacer" aria-hidden="true"></span>
 
-      <nav
-        class="inline-flex shrink-0 items-center gap-1 rounded-full border border-white/10 bg-black/20 px-1.5 py-1 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#7d7d7c] backdrop-blur-sm"
-        aria-label={ariaNav}
+    <nav class="site-nav" aria-label="Principal">
+      {links.map((link) => {
+        const active = !link.external && currentPath === link.href;
+        return (
+          <a
+            class:list={["site-nav__link", { "is-active": active }]}
+            href={link.href}
+            target={link.external ? "_blank" : undefined}
+            rel={link.external ? "noreferrer noopener" : undefined}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+    </nav>
+
+    <nav
+      class="site-header__lang inline-flex shrink-0 items-center gap-1 rounded-full border border-white/10 bg-black/20 px-1.5 py-1 text-[0.68rem] font-bold uppercase tracking-[0.12em] text-[#7d7d7c] backdrop-blur-sm"
+      aria-label={ariaNav}
+    >
+      <a
+        href={ptPath}
+        class:list={[
+          "rounded-full px-2 py-1 transition-colors duration-150 motion-reduce:transition-none",
+          lang === "pt-BR" ? "bg-white/10 text-[#e9c349]" : "hover:text-[#e9c349]"
+        ]}
+        lang="pt-BR"
       >
-        <a
-          href={ptPath}
-          class:list={[
-            "rounded-full px-2 py-1 transition-colors duration-150 motion-reduce:transition-none",
-            lang === "pt-BR" ? "bg-white/10 text-[#e9c349]" : "hover:text-[#e9c349]"
-          ]}
-          lang="pt-BR"
-        >
-          PT
-        </a>
-        <span class="text-white/15" aria-hidden="true">/</span>
-        <a
-          href={enPath}
-          class:list={[
-            "rounded-full px-2 py-1 transition-colors duration-150 motion-reduce:transition-none",
-            lang === "en-US" ? "bg-white/10 text-[#e9c349]" : "hover:text-[#e9c349]"
-          ]}
-          lang="en-US"
-        >
-          EN
-        </a>
-      </nav>
-    </div>
+        PT
+      </a>
+      <span class="text-white/15" aria-hidden="true">/</span>
+      <a
+        href={enPath}
+        class:list={[
+          "rounded-full px-2 py-1 transition-colors duration-150 motion-reduce:transition-none",
+          lang === "en-US" ? "bg-white/10 text-[#e9c349]" : "hover:text-[#e9c349]"
+        ]}
+        lang="en-US"
+      >
+        EN
+      </a>
+    </nav>
   </div>
 </header>

@@ -1,5 +1,5 @@
 import type { CollectionEntry } from "astro:content";
-import { absoluteUrl, SITE_URL } from "./site";
+import { absoluteUrl, SITE_URL, type HreflangAlternate } from "./site";
 
 export type PostLang = "pt-BR" | "en-US";
 
@@ -34,7 +34,7 @@ export function findTranslationPartner(
 export function hreflangAlternates(
   post: CollectionEntry<"posts">,
   partner: CollectionEntry<"posts"> | undefined
-): { hreflang: string; href: string }[] {
+): HreflangAlternate[] {
   if (!partner) return [];
   return [
     { hreflang: "pt-BR", href: post.data.lang === "pt-BR" ? post.data.canonicalURL : partner.data.canonicalURL },

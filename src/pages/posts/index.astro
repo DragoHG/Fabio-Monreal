@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import PostCard from "../../components/PostCard.astro";
 import { postPublicPath, postsByLang } from "../../lib/posts";
+import { DEFAULT_OG_IMAGE, SITE_URL } from "../../lib/site";
 
 const all = await getCollection("posts");
 const posts = postsByLang(all, "pt-BR");
@@ -17,9 +18,9 @@ const leadLine =
 <BaseLayout
   title="Publicações | Fábio Monreal"
   description="Arquivo de publicações técnicas em cloud, segurança, FinOps, SRE e GenAI soberana."
-  ogImage="/images/og/home.png"
+  ogImage={DEFAULT_OG_IMAGE}
   keywords={["publicações técnicas", "cloud", "segurança", "FinOps"]}
-  canonicalURL="https://fabiomonreal.com/posts/"
+  canonicalURL={new URL("/posts/", SITE_URL).href}
   currentPath="/posts/"
 >
   <main>

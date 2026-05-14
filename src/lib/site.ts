@@ -4,9 +4,13 @@ export const SITE_URL =
 export const SITE_NAME = "Fábio Monreal";
 export const SITE_TITLE =
   "Fábio Monreal | Hub de Autoridade Técnica em Cloud, Segurança e FinOps";
+/** English home `<title>` + WebSite JSON-LD name. */
+export const SITE_TITLE_EN = "Fábio Monreal | Technical Authority Hub";
 export const SITE_DESCRIPTION =
   "Arquitetura multi-cloud, segurança, FinOps, SRE e GenAI soberana em publicações técnicas, casos de alto impacto e visão executiva.";
 export const DEFAULT_OG_IMAGE = "/images/og/home.png";
+
+export type HreflangAlternate = { hreflang: string; href: string };
 
 export function absoluteUrl(path: string) {
   if (path.startsWith("http://") || path.startsWith("https://")) {

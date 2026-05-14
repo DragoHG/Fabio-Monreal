@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import PostCard from "../components/PostCard.astro";
 import { aboutContent, profile } from "../lib/about-content";
+import { ptHomeWebsiteJsonLd } from "../lib/home-schema";
 import { postPublicPath, postsByLang } from "../lib/posts";
 import { DEFAULT_OG_IMAGE, SITE_DESCRIPTION, SITE_TITLE } from "../lib/site";
 
@@ -20,19 +21,7 @@ const destaqueSubtitle =
     ? `Leia primeiro o que acaba de entrar no arquivo: ${recentTitles.join(" · ")}.`
     : "Novos textos aparecem aqui assim que forem publicados.";
 
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: SITE_TITLE,
-  url: "https://fabiomonreal.com/",
-  description: SITE_DESCRIPTION,
-  author: {
-    "@type": "Person",
-    name: profile.name,
-    url: "https://fabiomonreal.com/sobre/",
-    sameAs: [profile.linkedin, profile.github, profile.medium, profile.devto]
-  }
-};
+const schema = ptHomeWebsiteJsonLd();
 ---
 
 <BaseLayout
@@ -83,7 +72,11 @@ const schema = {
         </div>
       </div>
       <div class="hero__fade" aria-hidden="true"></div>
-      <a class="hero-scroll" href="#destaques" aria-label="Ir para publicações em destaque">
+      <a
+        class="hero-scroll"
+        href="#destaques"
+        aria-label="Explorar: ir para publicações em destaque"
+      >
         <span class="hero-scroll__label">Explorar</span>
         <svg class="hero-scroll__icon" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
           <path
