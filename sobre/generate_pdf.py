@@ -21,6 +21,7 @@ HTML_EN_REPO = ROOT / "index_en.html"
 # Cópias locais opcionais (gitignored): telefone, envio direto, PDF preferencial.
 HTML_PT_PRIVATE = ROOT / "index_private.html"
 HTML_EN_PRIVATE = ROOT / "index_en_private.html"
+HTML_PERITO = ROOT / "Fabio_Monreal_Perito.html"
 
 
 def file_url(path: Path | str) -> str:
@@ -74,6 +75,18 @@ KEYWORDS_EN = (
     "CISO Advisor, FinOps, Sovereign GenAI, MLOps, System Design, SRE, Multi-Cloud, Cyber Resilience, "
     "Data Security, AI Governance, LGPD, GDPR, CCPA, Zero Trust, Azure, AWS, Sentinel, Purview, "
     "DFIR, XDR, Threat Hunting, DPO, Brazil, resume"
+)
+
+TITLE_PERITO = (
+    "Fábio Santana Monreal | Perito Judicial em TI & Cibersegurança | Assistente Técnico Legal"
+)
+
+KEYWORDS_PERITO = (
+    "Fábio Santana Monreal, Perito Judicial, Assistente Técnico, Auxiliar da Justiça, "
+    "TJSP 147088, TRT2, perícia informática, perícia forense digital, laudo pericial, "
+    "prova digital, e-mail corporativo, ponto eletrônico, vazamento de dados, "
+    "sequestro de dados, ransomware, LGPD, proteção de dados, auditoria de acessos, "
+    "cadeia de custódia, São Paulo, Brasil"
 )
 
 # Limites da busca binária (Playwright aceita scale em (0, 2]; na prática usamos ≤ 1)
@@ -218,6 +231,24 @@ async def main() -> None:
             "keywords": KEYWORDS_EN,
         },
         scale=scale_en,
+    )
+
+    if not HTML_PERITO.exists():
+        raise FileNotFoundError(f"Perito HTML não encontrado: {HTML_PERITO}")
+
+    scale_perito = await find_max_single_page_scale(HTML_PERITO)
+    print(f"Optimal scale (Perito, {HTML_PERITO.name}): {scale_perito}")
+
+    await generate_pdf(
+        str(HTML_PERITO),
+        str(ROOT / "Fabio_Monreal_Perito.pdf"),
+        {
+            "title": TITLE_PERITO,
+            "subject": "Currículo Perito Judicial — Fábio Santana Monreal",
+            "keywords": KEYWORDS_PERITO,
+            "author": "Fábio Santana Monreal",
+        },
+        scale=scale_perito,
     )
 
 

@@ -97,8 +97,12 @@ src/
 sobre/
   index.html             # Fonte do CV PT (PDF pipeline; cópia servida em /resumo/pt/)
   index_en.html
+  Fabio_Monreal_Perito.html
   generate_pdf.py
+AGENTS.md
 ```
+
+Guia operacional para agentes de IA e contribuidores: [`AGENTS.md`](AGENTS.md).
 
 ## Rotas (PT vs EN)
 
@@ -124,6 +128,8 @@ Cada `.md` declara `lang: pt-BR` ou `lang: en-US`. Convém **um ficheiro por idi
 **Política `x-default`:** se existir par PT+EN, `x-default` aponta para a versão **em inglês** (definição em [`src/lib/posts.ts`](src/lib/posts.ts), `xDefaultCanonical`).
 
 Detalhes e exemplos mínimos de frontmatter seguem; o contrato completo está em [`src/content.config.ts`](src/content.config.ts).
+
+## Frontmatter dos posts
 
 ### Frontmatter (PT)
 
@@ -189,7 +195,15 @@ keywords:
 
 ## CV legado e PDF
 
-Os HTMLs completos do currículo vivem em `sobre/` e alimentam o script de PDF.
+Os HTMLs completos do currículo vivem em `sobre/` e alimentam o script de PDF. Cada PDF deve caber em **uma única página A4** (escala ajustada automaticamente pelo script).
+
+| HTML | PDF | Público |
+|------|-----|---------|
+| `sobre/index.html` | `Fabio_Monreal_CV_PT.pdf` | Sim (site/canonical) |
+| `sobre/index_en.html` | `Fabio_Monreal_CV_EN.pdf` | Sim |
+| `sobre/Fabio_Monreal_Perito.html` | `Fabio_Monreal_Perito.pdf` | **Não** — uso privado, `noindex`, CSS inline |
+
+O currículo de **Perito Judicial** não entra no sitemap nem na navegação do blog Astro.
 
 **Resumo para impressão (A4) no browser:** versões estáticas em **`/resumo/pt/`** e **`/resumo/en/`** (ficheiros em `public/resumo/...`), com CSS em `/assets/css/...`. A página Astro **`/sobre/`** é o “sobre” editorial do hub.
 

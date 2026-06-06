@@ -4,8 +4,11 @@ index_en_private.html
 
 CURRICULO.md
 
-# PDFs gerados localmente
+# PDFs gerados localmente (pipeline sobre/generate_pdf.py)
 *.pdf
+sobre/Fabio_Monreal_CV_PT.pdf
+sobre/Fabio_Monreal_CV_EN.pdf
+sobre/Fabio_Monreal_Perito.pdf
 .pdf_fit_scratch.pdf
 
 # Python
