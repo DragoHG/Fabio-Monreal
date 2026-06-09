@@ -244,9 +244,9 @@ async def main() -> None:
         str(ROOT / "Fabio_Monreal_Perito.pdf"),
         {
             "title": TITLE_PERITO,
-            "subject": "Currículo Perito Judicial — Fábio Santana Monreal",
+            "subject": "Currículo Perito Judicial — Fábio Monreal",
             "keywords": KEYWORDS_PERITO,
-            "author": "Fábio Santana Monreal",
+            "author": "Fábio Monreal",
         },
         scale=scale_perito,
     )

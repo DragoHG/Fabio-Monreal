@@ -85,14 +85,24 @@ function patchEn(html) {
   return h;
 }
 
+function patchPerito(html) {
+  return html
+    .replaceAll("https://fabio-monreal.vercel.app/perito/", "https://fabiomonreal.com/perito/")
+    .replaceAll("https://fabio-monreal.vercel.app/", "https://fabiomonreal.com/resumo/pt/");
+}
+
 const ptOut = path.join(root, "public", "resumo", "pt", "index.html");
 const enOut = path.join(root, "public", "resumo", "en", "index.html");
+const peritoOut = path.join(root, "public", "resumo", "pt", "perito", "index.html");
 fs.mkdirSync(path.dirname(ptOut), { recursive: true });
 fs.mkdirSync(path.dirname(enOut), { recursive: true });
+fs.mkdirSync(path.dirname(peritoOut), { recursive: true });
 
 const ptSrc = fs.readFileSync(path.join(root, "sobre", "index.html"), "utf8");
 const enSrc = fs.readFileSync(path.join(root, "sobre", "index_en.html"), "utf8");
+const peritoSrc = fs.readFileSync(path.join(root, "sobre", "Fabio_Monreal_Perito.html"), "utf8");
 
 fs.writeFileSync(ptOut, patchPt(ptSrc));
 fs.writeFileSync(enOut, patchEn(enSrc));
-console.log("OK:", ptOut, enOut);
+fs.writeFileSync(peritoOut, patchPerito(peritoSrc));
+console.log("OK:", ptOut, enOut, peritoOut);

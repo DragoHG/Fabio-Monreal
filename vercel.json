@@ -1,4 +1,31 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/sobre/Fabio_Monreal_Perito.html",
+      "destination": "/perito/",
+      "permanent": true
+    },
+    {
+      "source": "/resumo/pt/perito",
+      "destination": "/perito/",
+      "permanent": true
+    },
+    {
+      "source": "/resumo/pt/perito/",
+      "destination": "/perito/",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/perito",
+      "destination": "/resumo/pt/perito/index.html"
+    },
+    {
+      "source": "/perito/",
+      "destination": "/resumo/pt/perito/index.html"
+    }
+  ]
 }
