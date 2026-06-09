@@ -13,7 +13,7 @@
     <xhtml:link rel="alternate"
                 hreflang="x-default"
                 href="https://fabio-monreal.vercel.app/" />
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -29,8 +29,18 @@
     <xhtml:link rel="alternate"
                 hreflang="x-default"
                 href="https://fabio-monreal.vercel.app/" />
-    <lastmod>2026-05-01</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <!-- Perito judicial (PT-BR) -->
+  <url>
+    <loc>https://fabio-monreal.vercel.app/perito/</loc>
+    <xhtml:link rel="alternate"
+                hreflang="pt-BR"
+                href="https://fabio-monreal.vercel.app/perito/" />
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

@@ -21,6 +21,7 @@ HTML_EN_REPO = ROOT / "index_en.html"
 # Cópias locais opcionais (gitignored): telefone, envio direto, PDF preferencial.
 HTML_PT_PRIVATE = ROOT / "index_private.html"
 HTML_EN_PRIVATE = ROOT / "index_en_private.html"
+HTML_PERITO = ROOT / "sobre" / "Fabio_Monreal_Perito.html"
 
 
 def file_url(path: Path | str) -> str:
@@ -57,16 +58,14 @@ def repair_en_mojibake(en_source: Path) -> None:
 
 
 DOCUMENT_TITLE = (
-    "Fábio Monreal | Multi-Cloud & Security Architect | IC | CISO | FinOps"
+    "Fábio Monreal | Multi-Cloud & Security Architect | IC | CISO"
 )
 
 # Alinhado às meta keywords de index.html / index_en.html (produção).
 KEYWORDS_PT = (
     "Fábio Monreal, Senior Multi-Cloud Architect, Security Architect, Incident Commander, "
-    "CISO Advisor, FinOps, Sovereign GenAI, MLOps, System Design, SRE, Multi-Cloud Architecture, "
-    "Cyber Resilience, Data Security, AI Governance, LGPD, GDPR, Zero Trust, Azure, AWS, "
-    "Microsoft Sentinel, Microsoft Purview, Zero Data Leakage, DFIR, XDR, EDR, DPO, Threat Hunting, "
-    "São Paulo, Brasil curriculo"
+    "CISO Advisor, FinOps, Sovereign GenAI, MLOps, SRE, Zero Trust, Azure, AWS, "
+    "DFIR, XDR, LGPD, Threat Hunting, São Paulo, Brazil"
 )
 
 KEYWORDS_EN = (
@@ -74,6 +73,15 @@ KEYWORDS_EN = (
     "CISO Advisor, FinOps, Sovereign GenAI, MLOps, System Design, SRE, Multi-Cloud, Cyber Resilience, "
     "Data Security, AI Governance, LGPD, GDPR, CCPA, Zero Trust, Azure, AWS, Sentinel, Purview, "
     "DFIR, XDR, Threat Hunting, DPO, Brazil, resume"
+)
+
+TITLE_PERITO = (
+    "Fábio Monreal | Perito Judicial TI e Forense Digital | TJSP"
+)
+
+KEYWORDS_PERITO = (
+    "perito judicial, perito em informática, perícia forense digital, laudo pericial, "
+    "prova digital, assistente técnico, TJSP, vazamento de dados, ransomware, LGPD, São Paulo"
 )
 
 # Limites da busca binária (Playwright aceita scale em (0, 2]; na prática usamos ≤ 1)
@@ -218,6 +226,25 @@ async def main() -> None:
             "keywords": KEYWORDS_EN,
         },
         scale=scale_en,
+    )
+
+    if not HTML_PERITO.exists():
+        print(f"Nota: perito omitido — {HTML_PERITO.name} não encontrado.")
+        return
+
+    scale_perito = await find_max_single_page_scale(HTML_PERITO)
+    print(f"Optimal scale (Perito, {HTML_PERITO.name}): {scale_perito}")
+
+    await generate_pdf(
+        str(HTML_PERITO),
+        str(ROOT / "sobre" / "Fabio_Monreal_Perito.pdf"),
+        {
+            "title": TITLE_PERITO,
+            "subject": "Currículo Perito Judicial — Fábio Monreal",
+            "keywords": KEYWORDS_PERITO,
+            "author": "Fábio Santana Monreal",
+        },
+        scale=scale_perito,
     )
 
 
