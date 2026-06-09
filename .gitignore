@@ -35,6 +35,7 @@ ENV/
 node_modules/
 .astro/
 dist/
+.vercel/
 
 # Ferramentas locais
 .cursor/
