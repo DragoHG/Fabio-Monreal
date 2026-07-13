@@ -1,5 +1,7 @@
 # Ver também: Search Console → Sitemaps → https://fabio-monreal.vercel.app/sitemap.xml
 User-agent: *
 Allow: /
+Disallow: /pmc
+Disallow: /sobre/Fabio_Monreal_PMC
 
 Sitemap: https://fabio-monreal.vercel.app/sitemap.xml

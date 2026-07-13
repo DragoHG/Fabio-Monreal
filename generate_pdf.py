@@ -22,6 +22,8 @@ HTML_EN_REPO = ROOT / "index_en.html"
 HTML_PT_PRIVATE = ROOT / "index_private.html"
 HTML_EN_PRIVATE = ROOT / "index_en_private.html"
 HTML_PERITO = ROOT / "sobre" / "Fabio_Monreal_Perito.html"
+HTML_PMC = ROOT / "sobre" / "Fabio_Monreal_PMC.html"
+HTML_PMC_EN = ROOT / "sobre" / "Fabio_Monreal_PMC_en.html"
 
 
 def file_url(path: Path | str) -> str:
@@ -82,6 +84,24 @@ TITLE_PERITO = (
 KEYWORDS_PERITO = (
     "perito judicial, perito em informática, perícia forense digital, laudo pericial, "
     "prova digital, assistente técnico, TJSP, vazamento de dados, ransomware, LGPD, São Paulo"
+)
+
+TITLE_PMC = (
+    "F. Drago M. | Inteligência Corporativa & Operações Híbridas"
+)
+
+KEYWORDS_PMC = (
+    "inteligência privada, OSINT, HUMINT, contra-inteligência corporativa, asset recovery, "
+    "due diligence, red teaming, proteção executiva, corporate intelligence, investigação híbrida"
+)
+
+TITLE_PMC_EN = (
+    "F. Drago M. | Corporate Intelligence & Hybrid Operations"
+)
+
+KEYWORDS_PMC_EN = (
+    "private intelligence, OSINT, HUMINT, corporate counter-intelligence, asset recovery, "
+    "due diligence, red teaming, executive protection, court-appointed expert, hybrid operations"
 )
 
 # Limites da busca binária (Playwright aceita scale em (0, 2]; na prática usamos ≤ 1)
@@ -230,21 +250,57 @@ async def main() -> None:
 
     if not HTML_PERITO.exists():
         print(f"Nota: perito omitido — {HTML_PERITO.name} não encontrado.")
+    else:
+        scale_perito = await find_max_single_page_scale(HTML_PERITO)
+        print(f"Optimal scale (Perito, {HTML_PERITO.name}): {scale_perito}")
+
+        await generate_pdf(
+            str(HTML_PERITO),
+            str(ROOT / "sobre" / "Fabio_Monreal_Perito.pdf"),
+            {
+                "title": TITLE_PERITO,
+                "subject": "Currículo Perito Judicial — Fábio Monreal",
+                "keywords": KEYWORDS_PERITO,
+                "author": "Fábio Monreal",
+            },
+            scale=scale_perito,
+        )
+
+    if not HTML_PMC.exists():
+        print(f"Nota: PMC omitido — {HTML_PMC.name} não encontrado.")
+    else:
+        scale_pmc = await find_max_single_page_scale(HTML_PMC)
+        print(f"Optimal scale (PMC PT, {HTML_PMC.name}): {scale_pmc}")
+
+        await generate_pdf(
+            str(HTML_PMC),
+            str(ROOT / "sobre" / "Fabio_Monreal_PMC.pdf"),
+            {
+                "title": TITLE_PMC,
+                "subject": "Portfólio Inteligência Privada — F. Drago M.",
+                "keywords": KEYWORDS_PMC,
+                "author": "F. Drago M.",
+            },
+            scale=scale_pmc,
+        )
+
+    if not HTML_PMC_EN.exists():
+        print(f"Nota: PMC EN omitido — {HTML_PMC_EN.name} não encontrado.")
         return
 
-    scale_perito = await find_max_single_page_scale(HTML_PERITO)
-    print(f"Optimal scale (Perito, {HTML_PERITO.name}): {scale_perito}")
+    scale_pmc_en = await find_max_single_page_scale(HTML_PMC_EN)
+    print(f"Optimal scale (PMC EN, {HTML_PMC_EN.name}): {scale_pmc_en}")
 
     await generate_pdf(
-        str(HTML_PERITO),
-        str(ROOT / "sobre" / "Fabio_Monreal_Perito.pdf"),
+        str(HTML_PMC_EN),
+        str(ROOT / "sobre" / "Fabio_Monreal_PMC_EN.pdf"),
         {
-            "title": TITLE_PERITO,
-            "subject": "Currículo Perito Judicial — Fábio Monreal",
-            "keywords": KEYWORDS_PERITO,
-            "author": "Fábio Santana Monreal",
+            "title": TITLE_PMC_EN,
+            "subject": "Private Intelligence Portfolio — F. Drago M.",
+            "keywords": KEYWORDS_PMC_EN,
+            "author": "F. Drago M.",
         },
-        scale=scale_perito,
+        scale=scale_pmc_en,
     )
 
 
