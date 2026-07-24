@@ -9,11 +9,6 @@
       "source": "/sobre/Fabio_Monreal_Perito.html",
       "destination": "/perito/",
       "permanent": true
-    },
-    {
-      "source": "/sobre/Fabio_Monreal_PMC_en.html",
-      "destination": "/pmc/",
-      "permanent": true
     }
   ],
   "rewrites": [
@@ -32,14 +27,6 @@
     {
       "source": "/perito/",
       "destination": "/sobre/Fabio_Monreal_Perito.html"
-    },
-    {
-      "source": "/pmc",
-      "destination": "/sobre/Fabio_Monreal_PMC_en.html"
-    },
-    {
-      "source": "/pmc/",
-      "destination": "/sobre/Fabio_Monreal_PMC_en.html"
     }
   ],
   "headers": [
@@ -105,40 +92,6 @@
         {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
-        }
-      ]
-    },
-    {
-      "source": "/pmc",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/html; charset=utf-8"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive"
-        }
-      ]
-    },
-    {
-      "source": "/pmc/",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "text/html; charset=utf-8"
-        },
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Robots-Tag",
-          "value": "noindex, nofollow, noarchive"
         }
       ]
     },

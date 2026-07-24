@@ -45,7 +45,7 @@ djlint *.html --reformat --indent 2 --profile html
 
 - **Production site:** `index.html` (PT‑BR), `index_en.html` (EN), `assets/`, [`vercel.json`](vercel.json) (`/` → `index.html`, `/en` → `index_en.html`).
 - **SEO:** Semantic HTML5, JSON‑LD (`schema.org/Person`), Open Graph, Twitter Cards; canonical **`fabio-monreal.vercel.app/`** (PT) and **`/en`** (EN).
-- **Optional local `_private` HTML (never committed):** `index_private.html`, `index_en_private.html` — include phone where you want; [`generate_pdf.py`](generate_pdf.py) prefers them and otherwise uses the tracked `index.html` / `index_en.html`.
+- **Optional local `_private` HTML (never committed):** `index_private.html`, `index_en_private.html`, `sobre/Fabio_Monreal_Perito_private.html` — include phone + IDCiber Assoc. IDC-953 for PDF only; [`generate_pdf.py`](generate_pdf.py) prefers them and otherwise uses the tracked public HTML (no phone / no association number).
 - **Automation:** [`generate_pdf.py`](generate_pdf.py) uses Playwright to render HTML and **pypdf** for ATS‑friendly PDF metadata.
 
 ---
@@ -65,7 +65,7 @@ Optionally place `index_private.html` / `index_en_private.html` (phone, ATS extr
 poetry run python generate_pdf.py
 ```
 
-The script fits content to **a single A4 page** per language via automatic scaling. If the `*_private` files are absent, it uses the tracked **`index.html` / `index_en.html`** (production body text, no surprise errors).
+The script fits content to **at most 2 A4 pages** per document via automatic scaling (ideal target: 1.5–2.0). If the `*_private` files are absent, it uses the tracked **`index.html` / `index_en.html`** (production body text, no surprise errors).
 
 ### Without Poetry (pip)
 
