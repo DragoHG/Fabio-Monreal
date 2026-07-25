@@ -237,76 +237,76 @@
         .edu { break-inside: avoid; page-break-inside: avoid; }
         .edu li { font-size: 8.5pt; margin-bottom: 3px; list-style: disc; margin-left: 14px; }
         .closing-block { break-inside: avoid; page-break-inside: avoid; }
-        /* Uma página A4: preenche a folha com tipografia legível */
-        @page { size: A4; margin: 10mm 12mm; }
+        /* Uma página A4 no print do navegador (scale 1.0) - tipografia expandida sem 2ª página */
+        @page { size: A4; margin: 9mm 11mm; }
         @media print {
             body {
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
-                font-size: 9pt;
-                line-height: 1.36;
+                font-size: 8.9pt;
+                line-height: 1.32;
             }
             .container { padding: 0; max-width: none; width: 100%; }
             a { color: #333; text-decoration: none; }
             header {
-                margin-bottom: 8px;
-                padding-bottom: 6px;
+                margin-bottom: 6px;
+                padding-bottom: 5px;
                 border-bottom-width: 1.5px;
             }
-            h1 { font-size: 16pt; margin-bottom: 3px; letter-spacing: 0.3px; }
-            .subtitle { font-size: 9pt; margin-bottom: 4px; line-height: 1.3; }
+            h1 { font-size: 15.5pt; margin-bottom: 2px; letter-spacing: 0.3px; }
+            .subtitle { font-size: 8.6pt; margin-bottom: 3px; line-height: 1.28; }
             .credential-highlight {
-                font-size: 8pt;
-                padding: 3px 9px;
-                margin-bottom: 4px;
+                font-size: 7.7pt;
+                padding: 2px 8px;
+                margin-bottom: 3px;
             }
-            .contacts { font-size: 7.8pt; margin-bottom: 2px; }
-            .links { white-space: nowrap; font-size: 7.3pt; margin-bottom: 0; }
-            .section { margin-bottom: 7px; break-inside: auto; page-break-inside: auto; }
+            .contacts { font-size: 7.5pt; margin-bottom: 1px; }
+            .links { white-space: nowrap; font-size: 7pt; margin-bottom: 0; }
+            .section { margin-bottom: 5.5px; break-inside: auto; page-break-inside: auto; }
             .section-title {
-                font-size: 8.6pt;
-                margin-bottom: 4px;
-                padding-bottom: 2px;
+                font-size: 8.3pt;
+                margin-bottom: 3px;
+                padding-bottom: 1.5px;
                 letter-spacing: 0.05em;
             }
-            p { margin-bottom: 3px; font-size: 8.4pt; text-align: justify; }
-            .topic-grid { gap: 5px 12px; }
+            p { margin-bottom: 2.5px; font-size: 8.1pt; text-align: justify; line-height: 1.32; }
+            .topic-grid { gap: 4px 11px; }
             .topic-item.entry { break-inside: avoid; page-break-inside: avoid; margin-bottom: 0; }
-            .topic-title { font-size: 8pt; margin-bottom: 2px; }
-            .topic-item p { font-size: 7.7pt; line-height: 1.32; }
-            .entry { margin-bottom: 5px; break-inside: auto; page-break-inside: auto; }
+            .topic-title { font-size: 7.7pt; margin-bottom: 1px; }
+            .topic-item p { font-size: 7.4pt; line-height: 1.28; }
+            .entry { margin-bottom: 4px; break-inside: auto; page-break-inside: auto; }
             .entry-header, .entry h3, .meta {
                 break-after: avoid;
                 page-break-after: avoid;
             }
-            .entry h3 { font-size: 8.8pt; }
-            .meta { font-size: 7.7pt; }
-            ul.bullets { margin-top: 2px; }
+            .entry h3 { font-size: 8.4pt; }
+            .meta { font-size: 7.4pt; }
+            ul.bullets { margin-top: 1px; }
             ul.bullets li {
-                font-size: 8pt;
-                margin-bottom: 2.5px;
-                line-height: 1.32;
+                font-size: 7.7pt;
+                margin-bottom: 2px;
+                line-height: 1.3;
                 break-inside: avoid;
             }
-            .certs-official { margin-bottom: 5px; }
+            .certs-official { margin-bottom: 4px; }
             .certs-official-title,
             .certs-spec-title,
-            .certs-aff-title { font-size: 8.2pt; margin: 0 0 3px; }
-            .certs-official-list li { font-size: 7.6pt; line-height: 1.35; }
-            .certs-grid { gap: 6px 12px; margin-bottom: 5px; break-inside: auto; }
-            .certs-grid h4 { font-size: 7.8pt; margin-bottom: 3px; }
-            .certs-grid li { font-size: 7.1pt; margin-bottom: 1.5px; line-height: 1.28; }
+            .certs-aff-title { font-size: 7.9pt; margin: 0 0 2px; }
+            .certs-official-list li { font-size: 7.3pt; line-height: 1.3; }
+            .certs-grid { gap: 4px 10px; margin-bottom: 4px; break-inside: auto; align-items: start; }
+            .certs-grid h4 { font-size: 7.5pt; margin-bottom: 2px; }
+            .certs-grid li { font-size: 6.9pt; margin-bottom: 1px; line-height: 1.25; }
             .section-certs { break-before: auto; page-break-before: auto; }
             .closing-block {
                 break-inside: avoid;
                 page-break-inside: avoid;
-                margin-top: 6px;
-                padding-top: 5px;
+                margin-top: 4px;
+                padding-top: 4px;
                 border-top: 1px solid var(--line);
             }
-            .affiliations li { font-size: 8pt; margin-bottom: 2.5px; }
-            .section-edu { margin-top: 6px; margin-bottom: 0; }
-            .edu li { font-size: 8.2pt; margin-bottom: 3px; line-height: 1.35; }
+            .affiliations li { font-size: 7.7pt; margin-bottom: 2px; }
+            .section-edu { margin-top: 5px; margin-bottom: 0; }
+            .edu li { font-size: 7.8pt; margin-bottom: 2.5px; line-height: 1.3; }
             .no-print { display: none !important; }
         }
     </style>
@@ -407,7 +407,7 @@
                     <p class="meta"><span class="company">ADD IT Cloud Solutions</span> · Jun/2024 - Mai/2026</p>
                 </div>
                 <ul class="bullets">
-                    <li><strong>Incident Commander</strong> na restauração forense de <strong>Active Directory</strong> pós-perda permanente (<strong>Zero Data Loss</strong> / soft-match <strong>Graph API</strong>).</li>
+                    <li><strong>Incident Commander</strong> na restauração forense de <strong>Active Directory</strong> pós-perda permanente (<strong>Zero Data Loss</strong> / soft-match <strong>Graph API</strong>) - ambientes de clientes hospedados em datacenter <strong>Ascenty</strong>.</li>
                     <li>Análise forense de logs SMTP/segurança; <strong>BaaS</strong> imutável (<strong>Veeam</strong>) anti-<strong>Ransomware</strong>; laudos técnicos/jurídicos à alta gestão.</li>
                 </ul>
             </article>
@@ -420,6 +420,7 @@
                     <li><strong>Costa Crociere S.p.A.:</strong> Advisory ao Jurídico (soberania de dados e conformidade internacional).</li>
                     <li><strong>Kaspersky (via Sitel / Foundever):</strong> Resposta a Incidentes, <strong>Ransomware Forensics</strong> e <strong>Threat Hunting</strong> B2B.</li>
                     <li><strong>Microsoft (via Teleperformance SA):</strong> <strong>Crit Sit</strong> / Tier 2 - casos críticos globais e análise avançada de logs.</li>
+                    <li><strong>Datacenter Ascenty (ADD IT):</strong> Infraestrutura cloud, <strong>BaaS</strong> e resiliência para clientes da ADD IT hospedados no datacenter <strong>Ascenty</strong>.</li>
                     <li><strong>Instruct / Equinix:</strong> Observabilidade, <strong>Vault</strong> e telemetria em larga escala (base para nexo causal técnico).</li>
                 </ul>
             </article>
@@ -499,6 +500,7 @@
                     <li><strong>MBA Executivo:</strong> Gestão Estratégica na Era da IA - <strong>FIAP</strong> (2026 - 2027)</li>
                     <li><strong>CST em Defesa Cibernética</strong> - <strong>FIAP</strong> (2021 - 2022)</li>
                     <li><strong>Ensino Técnico em Administração, Governança e Negócios</strong> - Rio Branco / Cepro (2013 - 2015)</li>
+                    <li><strong>Curso livre:</strong> Fundamentos de Direito Penal, Processual e Prova Pericial - <strong>AlfaCon</strong></li>
                 </ul>
             </section>
         </div>

@@ -1,10 +1,10 @@
 /*
- * Impressão / PDF - A4, máximo 2 páginas.
- * Tipografia executiva legível, quebras controladas (sem cabeçalho órfão).
+ * Impressão / PDF - A4, máximo 2 páginas no navegador (scale 1.0).
+ * Tipografia legível, densificada; .no-print oculto; sem quebra forçada que cause 3ª página.
  */
 @page {
   size: A4;
-  margin: 11mm 14mm;
+  margin: 9mm 11mm;
 }
 
 html,
@@ -19,8 +19,8 @@ body {
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
   font-family: "Inter", "Helvetica Neue", "Segoe UI", Arial, sans-serif !important;
-  font-size: 9.6pt !important;
-  line-height: 1.42 !important;
+  font-size: 9.1pt !important;
+  line-height: 1.36 !important;
   color: #333333 !important;
 }
 
@@ -37,7 +37,6 @@ body {
   background: #fff !important;
 }
 
-/* Ocultar navegação / UI de tela */
 .hero h1 .lang-switch,
 .hero-brand-mark,
 .hero-social,
@@ -47,18 +46,18 @@ body {
 
 h1,
 .hero-h1 {
-  font-size: 17pt !important;
-  line-height: 1.15 !important;
-  margin: 0 0 3px !important;
+  font-size: 16pt !important;
+  line-height: 1.12 !important;
+  margin: 0 0 2px !important;
   color: #0a2540 !important;
 }
 
 h2 {
-  font-size: 9.2pt !important;
-  letter-spacing: 0.07em !important;
-  line-height: 1.2 !important;
-  margin: 0 0 5px !important;
-  padding-bottom: 2px !important;
+  font-size: 8.8pt !important;
+  letter-spacing: 0.06em !important;
+  line-height: 1.15 !important;
+  margin: 0 0 3px !important;
+  padding-bottom: 1px !important;
   color: #0a2540 !important;
   border-bottom: 1px solid #0a2540 !important;
   break-after: avoid !important;
@@ -66,9 +65,9 @@ h2 {
 }
 
 h3 {
-  font-size: 9.6pt !important;
-  line-height: 1.25 !important;
-  margin: 0 0 2px !important;
+  font-size: 9pt !important;
+  line-height: 1.22 !important;
+  margin: 0 0 1px !important;
   color: #0a2540 !important;
   break-after: avoid !important;
   page-break-after: avoid !important;
@@ -81,27 +80,27 @@ a,
 .links,
 .meta,
 .focus {
-  font-size: 9pt !important;
-  line-height: 1.4 !important;
+  font-size: 8.4pt !important;
+  line-height: 1.34 !important;
   color: #333333 !important;
 }
 
 .hero .headline {
-  font-size: 8.5pt !important;
-  line-height: 1.35 !important;
-  margin-top: 3px !important;
+  font-size: 7.6pt !important;
+  line-height: 1.28 !important;
+  margin-top: 2px !important;
   font-weight: 600 !important;
   color: #0a2540 !important;
 }
 
 .contacts,
 .links {
-  margin-top: 3px !important;
-  gap: 2px 8px !important;
+  margin-top: 2px !important;
+  gap: 1px 6px !important;
 }
 
 .links-second-row {
-  margin-top: 1px !important;
+  margin-top: 0 !important;
 }
 
 a {
@@ -109,7 +108,6 @@ a {
   text-decoration: none !important;
 }
 
-/* Links no papel: texto legível (URL), sem aparência de hiperlink clicável */
 .contacts a.print-url,
 .links a.print-url,
 a.print-url {
@@ -126,18 +124,48 @@ a.print-url {
 
 .section + .section {
   margin-top: 0 !important;
-  padding-top: 8px !important;
+  padding-top: 7px !important;
   border-top: 1px solid #e2e8f0 !important;
 }
 
 .entry + .entry {
-  margin-top: 7px !important;
+  margin-top: 6px !important;
+}
+
+.certs-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 3px 8px !important;
+  align-items: start !important;
+}
+
+.certs-grid.certs-grid-4 {
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 3px 6px !important;
+  align-items: start !important;
+}
+
+.certs-grid > .entry {
+  margin: 0 !important;
+  min-width: 0 !important;
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+.certs-grid > .entry + .entry {
+  margin-top: 0 !important;
+}
+
+.certs-grid .entry h3 {
+  font-size: 7.1pt !important;
+  line-height: 1.18 !important;
+  margin: 0 0 2px !important;
+  min-height: 2.2em !important;
 }
 
 .entry,
 .certs-grid .entry,
 article.entry {
-  /* Entradas longas (ex.: ADD IT) podem partir; cabeçalho fica com o conteúdo seguinte */
   break-inside: auto !important;
   page-break-inside: auto !important;
 }
@@ -151,7 +179,6 @@ article.entry {
   page-break-inside: avoid !important;
 }
 
-/* Evita título de cargo sozinho no fim da página */
 .entry-header + ul,
 .entry .focus + ul {
   break-before: avoid !important;
@@ -163,33 +190,33 @@ li {
   page-break-inside: avoid !important;
   orphans: 2;
   widows: 2;
-  margin-top: 2.5px !important;
+  margin-top: 2.2px !important;
 }
 
 ul {
-  margin-top: 2px !important;
-  padding-left: 13px !important;
+  margin-top: 1px !important;
+  padding-left: 12px !important;
 }
 
 .entry p,
 .focus {
-  margin: 0 0 3px !important;
+  margin: 0 0 2px !important;
 }
 
 .focus {
   font-style: italic !important;
   color: #5a6570 !important;
-  font-size: 8.5pt !important;
+  font-size: 7.5pt !important;
 }
 
 .certs-official {
-  margin-bottom: 6px !important;
+  margin-bottom: 4px !important;
 }
 
 .certs-official-title,
 .certs-spec-title {
-  font-size: 7.8pt !important;
-  margin: 0 0 3px !important;
+  font-size: 7.2pt !important;
+  margin: 0 0 2px !important;
   color: #0a2540 !important;
   break-after: avoid !important;
   page-break-after: avoid !important;
@@ -197,16 +224,16 @@ ul {
 
 .certs-official-list {
   list-style: none !important;
-  margin: 0 0 5px !important;
+  margin: 0 0 3px !important;
   padding: 0 !important;
   display: flex !important;
   flex-wrap: wrap !important;
-  gap: 2px 0 !important;
+  gap: 1px 0 !important;
 }
 
 .certs-official-list li {
-  font-size: 7.8pt !important;
-  line-height: 1.35 !important;
+  font-size: 7pt !important;
+  line-height: 1.28 !important;
   margin: 0 !important;
   padding: 0 !important;
   break-inside: avoid !important;
@@ -214,40 +241,19 @@ ul {
 
 .certs-official-list li:not(:last-child)::after {
   content: "·";
-  margin: 0 8px;
+  margin: 0 6px;
   color: #5a6570;
 }
 
-.certs-grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important;
-  gap: 5px 10px !important;
-}
-
-.certs-grid.certs-grid-4 {
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 4px 7px !important;
-}
-
-.certs-grid .entry {
-  break-inside: avoid !important;
-  page-break-inside: avoid !important;
-}
-
-.certs-grid .entry h3 {
-  font-size: 7.4pt !important;
-  line-height: 1.2 !important;
-}
-
 .certs-affiliations {
-  margin: 5px 0 0 !important;
+  margin: 3px 0 0 !important;
   break-inside: avoid !important;
   page-break-inside: avoid !important;
 }
 
 .certs-affiliations-title {
-  font-size: 7.8pt !important;
-  margin: 0 0 2px !important;
+  font-size: 7.2pt !important;
+  margin: 0 0 1px !important;
   color: #0a2540 !important;
   break-after: avoid !important;
   page-break-after: avoid !important;
@@ -255,31 +261,30 @@ ul {
 
 .certs-affiliations ul {
   margin: 0 !important;
-  padding-left: 12px !important;
+  padding-left: 11px !important;
 }
 
 .certs-affiliations li {
-  font-size: 7.4pt !important;
-  line-height: 1.3 !important;
-  margin-top: 1px !important;
+  font-size: 7pt !important;
+  line-height: 1.25 !important;
+  margin-top: 0 !important;
 }
 
 .certs-grid li {
-  font-size: 6.7pt !important;
-  line-height: 1.28 !important;
+  font-size: 6.6pt !important;
+  line-height: 1.25 !important;
   margin-top: 0 !important;
 }
 
 .grid-two {
-  gap: 8px !important;
+  gap: 6px !important;
 }
 
 .project-stack {
-  font-size: 8.2pt !important;
+  font-size: 7.4pt !important;
   color: #5a6570 !important;
 }
 
-/* Formação e projetos: manter blocos compactos e legíveis */
 #formacao,
 #education,
 section[aria-labelledby="formacao"],
@@ -290,50 +295,33 @@ section[aria-labelledby="education"] {
 
 #projetos .entry,
 #projects .entry {
-  margin-top: 5px !important;
+  margin-top: 3px !important;
 }
 
-/*
- * Quebra limpa antes do bloco ADD IT: página 1 fecha nos papéis de perito;
- * página 2 começa com ADD IT (5 pilares) + trajetória + projetos + formação.
- */
+/* Fluxo contínuo: sem page-break forçado (evita 3ª página no print do browser) */
 article.entry[data-company="add-it"] {
-  break-before: page !important;
-  page-break-before: always !important;
+  break-before: auto !important;
+  page-break-before: auto !important;
   break-inside: auto !important;
   page-break-inside: auto !important;
-  padding-top: 2px !important;
-}
-
-/* Leitura mais folgada a partir do bloco ADD IT (página 2) */
-article.entry[data-company="add-it"],
-article.entry[data-company="add-it"] ~ .entry {
-  margin-top: 9px !important;
-}
-
-article.entry[data-company="add-it"] li {
+  padding-top: 0 !important;
   margin-top: 4px !important;
-  line-height: 1.44 !important;
 }
 
+article.entry[data-company="add-it"] li,
 article.entry[data-company="add-it"] ~ .entry li {
-  margin-top: 3.5px !important;
-  line-height: 1.42 !important;
+  margin-top: 1.5px !important;
+  line-height: 1.3 !important;
 }
 
 #projetos,
 #projects,
 section[aria-labelledby="projetos"],
 section[aria-labelledby="projects"] {
-  padding-top: 10px !important;
-}
-
-#projetos .entry,
-#projects .entry {
-  margin-top: 7px !important;
+  padding-top: 5px !important;
 }
 
 #projetos p,
 #projects p {
-  line-height: 1.42 !important;
+  line-height: 1.3 !important;
 }
