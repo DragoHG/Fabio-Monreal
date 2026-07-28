@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../assets/favicon.svg" rel="icon" type="image/svg+xml" />
     <link href="https://fabio-monreal.vercel.app/perito/" rel="canonical" />
     <meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots" />
     <title>Fábio Monreal | Perito Judicial TI e Forense Digital | TJSP | TRT2</title>
@@ -237,76 +238,76 @@
         .edu { break-inside: avoid; page-break-inside: avoid; }
         .edu li { font-size: 8.5pt; margin-bottom: 3px; list-style: disc; margin-left: 14px; }
         .closing-block { break-inside: avoid; page-break-inside: avoid; }
-        /* Uma página A4 no print do navegador (scale 1.0) - tipografia expandida sem 2ª página */
-        @page { size: A4; margin: 9mm 11mm; }
+        /* Uma pagina A4 no print do navegador (scale 1.0) - tipografia calibrada para preencher a folha */
+        @page { size: A4; margin: 7mm 8mm; }
         @media print {
             body {
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
-                font-size: 8.9pt;
-                line-height: 1.32;
+                font-size: 8.85pt;
+                line-height: 1.27;
             }
             .container { padding: 0; max-width: none; width: 100%; }
             a { color: #333; text-decoration: none; }
             header {
-                margin-bottom: 6px;
+                margin-bottom: 5px;
                 padding-bottom: 5px;
-                border-bottom-width: 1.5px;
+                border-bottom-width: 2px;
             }
-            h1 { font-size: 15.5pt; margin-bottom: 2px; letter-spacing: 0.3px; }
-            .subtitle { font-size: 8.6pt; margin-bottom: 3px; line-height: 1.28; }
+            h1 { font-size: 15.2pt; margin-bottom: 2px; letter-spacing: 0.25px; }
+            .subtitle { font-size: 8.85pt; margin-bottom: 3px; line-height: 1.27; }
             .credential-highlight {
-                font-size: 7.7pt;
+                font-size: 7.9pt;
                 padding: 2px 8px;
                 margin-bottom: 3px;
             }
-            .contacts { font-size: 7.5pt; margin-bottom: 1px; }
-            .links { white-space: nowrap; font-size: 7pt; margin-bottom: 0; }
-            .section { margin-bottom: 5.5px; break-inside: auto; page-break-inside: auto; }
+            .contacts { font-size: 7.9pt; margin-bottom: 2px; }
+            .links { white-space: nowrap; font-size: 7.1pt; margin-bottom: 0; }
+            .section { margin-bottom: 5px; break-inside: auto; page-break-inside: auto; }
             .section-title {
-                font-size: 8.3pt;
+                font-size: 8.6pt;
                 margin-bottom: 3px;
-                padding-bottom: 1.5px;
+                padding-bottom: 2px;
                 letter-spacing: 0.05em;
             }
-            p { margin-bottom: 2.5px; font-size: 8.1pt; text-align: justify; line-height: 1.32; }
-            .topic-grid { gap: 4px 11px; }
-            .topic-item.entry { break-inside: avoid; page-break-inside: avoid; margin-bottom: 0; }
-            .topic-title { font-size: 7.7pt; margin-bottom: 1px; }
-            .topic-item p { font-size: 7.4pt; line-height: 1.28; }
-            .entry { margin-bottom: 4px; break-inside: auto; page-break-inside: auto; }
+            p { margin-bottom: 2px; font-size: 8.2pt; text-align: justify; line-height: 1.27; }
+            .topic-grid { gap: 4px 10px; }
+            .topic-item.entry { break-inside: avoid; page-break-inside: avoid; margin-bottom: 1px; }
+            .topic-title { font-size: 8pt; margin-bottom: 1px; }
+            .topic-item p { font-size: 7.7pt; line-height: 1.25; }
+            .entry { margin-bottom: 3px; break-inside: auto; page-break-inside: auto; }
             .entry-header, .entry h3, .meta {
                 break-after: avoid;
                 page-break-after: avoid;
             }
-            .entry h3 { font-size: 8.4pt; }
-            .meta { font-size: 7.4pt; }
+            .entry h3 { font-size: 8.6pt; }
+            .meta { font-size: 7.5pt; }
             ul.bullets { margin-top: 1px; }
             ul.bullets li {
-                font-size: 7.7pt;
+                font-size: 8pt;
                 margin-bottom: 2px;
-                line-height: 1.3;
+                line-height: 1.27;
                 break-inside: avoid;
             }
             .certs-official { margin-bottom: 4px; }
             .certs-official-title,
             .certs-spec-title,
-            .certs-aff-title { font-size: 7.9pt; margin: 0 0 2px; }
-            .certs-official-list li { font-size: 7.3pt; line-height: 1.3; }
+            .certs-aff-title { font-size: 8.1pt; margin: 0 0 2px; }
+            .certs-official-list li { font-size: 7.5pt; line-height: 1.25; }
             .certs-grid { gap: 4px 10px; margin-bottom: 4px; break-inside: auto; align-items: start; }
-            .certs-grid h4 { font-size: 7.5pt; margin-bottom: 2px; }
-            .certs-grid li { font-size: 6.9pt; margin-bottom: 1px; line-height: 1.25; }
+            .certs-grid h4 { font-size: 7.7pt; margin-bottom: 1px; }
+            .certs-grid li { font-size: 7.1pt; margin-bottom: 0; line-height: 1.22; }
             .section-certs { break-before: auto; page-break-before: auto; }
             .closing-block {
                 break-inside: avoid;
                 page-break-inside: avoid;
-                margin-top: 4px;
+                margin-top: 5px;
                 padding-top: 4px;
                 border-top: 1px solid var(--line);
             }
-            .affiliations li { font-size: 7.7pt; margin-bottom: 2px; }
-            .section-edu { margin-top: 5px; margin-bottom: 0; }
-            .edu li { font-size: 7.8pt; margin-bottom: 2.5px; line-height: 1.3; }
+            .affiliations li { font-size: 7.9pt; margin-bottom: 1px; }
+            .section-edu { margin-top: 4px; margin-bottom: 0; }
+            .edu li { font-size: 7.5pt; margin-bottom: 1px; line-height: 1.24; }
             .no-print { display: none !important; }
         }
     </style>
@@ -433,6 +434,8 @@
                 <h3 class="certs-official-title">Certificações Oficiais</h3>
                 <ul class="certs-official-list">
                     <li><strong>OCI</strong> Certified Architect Associate</li>
+                    <li><strong>OCI</strong> AI Certified Foundations Associate</li>
+                    <li><strong>OCI</strong> Certified AI Data Platform Foundations Associate (AI Database)</li>
                     <li><strong>Fortinet FCA Associate</strong> - Cybersecurity &amp; FortiGate</li>
                     <li><strong>Fortinet FCF</strong> &amp; <strong>NSE 3</strong></li>
                     <li><strong>MCP</strong> - Microsoft Certified Professional</li>
@@ -451,7 +454,7 @@
                         <li><strong>AttackIQ</strong> - Detection Mgmt &amp; <strong>MITRE ATT&amp;CK</strong></li>
                         <li><strong>AttackIQ</strong> - Attack Flows v2</li>
                         <li><strong>Solyd</strong> Pentest</li>
-                        <li><strong>Bitdefender XDR</strong> / <strong>GravityZone</strong></li>
+                        <li><strong>Bitdefender</strong> <strong>XDR</strong> / GravityZone</li>
                         <li><strong>Microsoft Defender XDR</strong> &amp; Threat Protection</li>
                         <li><strong>AWS</strong> Incident Response</li>
                     </ul>
@@ -472,14 +475,16 @@
                 <div>
                     <h4>Cloud, GenAI Soberana &amp; Dados</h4>
                     <ul>
+                        <li><strong>AWS</strong> Serverless - Demonstrated</li>
+                        <li><strong>AWS</strong> Agentic AI - Demonstrated</li>
                         <li><strong>Google Cloud</strong> <strong>FinOps</strong> &amp; Cloud Economics with DevOps</li>
                         <li><strong>Google Cloud</strong> GenAI Architecture &amp; Multi-Agent</li>
                         <li><strong>Google Cloud</strong> <strong>MLOps</strong> &amp; <strong>Vertex AI</strong></li>
                         <li><strong>Google Cloud</strong> <strong>BigQuery ML</strong></li>
                         <li><strong>Azure</strong> Proactive Resiliency</li>
                         <li><strong>Microsoft Fabric</strong> Champion</li>
-                        <li><strong>Python</strong> for SysAdmins (<strong>4Linux</strong>)</li>
-                        <li><strong>DevOps</strong> &amp; Linux Security (<strong>4Linux</strong>)</li>
+                        <li><strong>4Linux</strong> - Python for SysAdmins</li>
+                        <li><strong>4Linux</strong> - DevOps &amp; Linux Security</li>
                     </ul>
                 </div>
             </div>

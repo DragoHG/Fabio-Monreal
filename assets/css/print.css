@@ -4,7 +4,7 @@
  */
 @page {
   size: A4;
-  margin: 9mm 11mm;
+  margin: 8mm 10mm;
 }
 
 html,
@@ -19,8 +19,8 @@ body {
   print-color-adjust: exact;
   -webkit-print-color-adjust: exact;
   font-family: "Inter", "Helvetica Neue", "Segoe UI", Arial, sans-serif !important;
-  font-size: 9.1pt !important;
-  line-height: 1.36 !important;
+  font-size: 8.9pt !important;
+  line-height: 1.32 !important;
   color: #333333 !important;
 }
 
@@ -124,7 +124,7 @@ a.print-url {
 
 .section + .section {
   margin-top: 0 !important;
-  padding-top: 7px !important;
+  padding-top: 5px !important;
   border-top: 1px solid #e2e8f0 !important;
 }
 
@@ -186,11 +186,11 @@ article.entry {
 }
 
 li {
-  break-inside: avoid !important;
-  page-break-inside: avoid !important;
+  break-inside: auto !important;
+  page-break-inside: auto !important;
   orphans: 2;
   widows: 2;
-  margin-top: 2.2px !important;
+  margin-top: 1.8px !important;
 }
 
 ul {
@@ -289,8 +289,8 @@ ul {
 #education,
 section[aria-labelledby="formacao"],
 section[aria-labelledby="education"] {
-  break-inside: avoid !important;
-  page-break-inside: avoid !important;
+  break-inside: auto !important;
+  page-break-inside: auto !important;
 }
 
 #projetos .entry,
@@ -318,7 +318,7 @@ article.entry[data-company="add-it"] ~ .entry li {
 #projects,
 section[aria-labelledby="projetos"],
 section[aria-labelledby="projects"] {
-  padding-top: 5px !important;
+  padding-top: 3px !important;
 }
 
 #projetos p,

@@ -61,24 +61,25 @@ def repair_en_mojibake(en_source: Path) -> None:
 
 
 DOCUMENT_TITLE = (
-    "Fábio Monreal | Senior Multi-Cloud & Security Architect | "
-    "Incident Commander & CISO Advisor | FinOps | Zero Trust | GRC"
+    "Fábio Monreal | Senior Multi-Cloud & Security Architect | MBA FIAP | "
+    "Incident Commander & CISO Advisor | FinOps & Sovereign GenAI | SRE | "
+    "Perito Judicial & Auditoria de TI (Due Diligence / M&A) | GRC/Compliance"
 )
 
 # Alinhado às meta keywords de index.html / index_en.html (produção).
 KEYWORDS_PT = (
     "Fábio Monreal, Senior Multi-Cloud Architect, Principal Architect, Security Architect, "
-    "Incident Commander, CISO Advisor, FinOps, Zero Trust, GRC, TOGAF, Sovereign GenAI, MLOps, "
-    "SRE, Azure, AWS, OCI, DFIR, XDR, LGPD, GDPR, CIS Controls, Perito Judicial, TJSP, TRT2, "
-    "Threat Hunting, São Paulo, Brazil"
+    "Incident Commander, CISO Advisor, MBA FIAP, FinOps, Zero Trust, GRC, Compliance, TOGAF, "
+    "Sovereign GenAI, MLOps, SRE, Due Diligence, M&A, Auditoria de TI, Azure, AWS, OCI, DFIR, "
+    "XDR, LGPD, GDPR, CIS Controls, Perito Judicial, TJSP, TRT2, Threat Hunting, São Paulo, Brazil"
 )
 
 KEYWORDS_EN = (
     "Fábio Monreal, Senior Multi-Cloud Architect, Principal Architect, Security Architect, "
-    "Incident Commander, CISO Advisor, FinOps, Zero Trust, GRC, TOGAF, Sovereign GenAI, MLOps, "
-    "System Design, SRE, Multi-Cloud, Cyber Resilience, Data Security, AI Governance, "
-    "LGPD, GDPR, CCPA, Azure, AWS, OCI, Sentinel, Purview, DFIR, XDR, Threat Hunting, "
-    "Court-Appointed Expert, Brazil, resume"
+    "Incident Commander, CISO Advisor, MBA FIAP, FinOps, Zero Trust, GRC, Compliance, TOGAF, "
+    "Sovereign GenAI, MLOps, System Design, SRE, Multi-Cloud, Cyber Resilience, Data Security, "
+    "AI Governance, Due Diligence, M&A, IT Audit, LGPD, GDPR, CCPA, Azure, AWS, OCI, Sentinel, "
+    "Purview, DFIR, XDR, Threat Hunting, Court-Appointed Expert, Brazil, resume"
 )
 
 TITLE_PERITO = (
