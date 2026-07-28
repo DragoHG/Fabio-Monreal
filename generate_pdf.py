@@ -89,7 +89,7 @@ TITLE_PERITO = (
 KEYWORDS_PERITO = (
     "perito judicial, perito em informática, perícia forense digital, laudo pericial, "
     "prova digital, assistente técnico, Due Diligence TI, M&A, TJSP, TRT2, "
-    "vazamento de dados, ransomware, LGPD, GDPR, DFIR, São Paulo"
+    "curriculo Lattes, CNPq, vazamento de dados, ransomware, LGPD, GDPR, DFIR, São Paulo"
 )
 
 TITLE_PMC = (
