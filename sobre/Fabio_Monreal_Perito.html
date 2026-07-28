@@ -8,7 +8,7 @@
     <meta content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" name="robots" />
     <title>Fábio Monreal | Perito Judicial TI e Forense Digital | TJSP | TRT2</title>
     <meta name="description" content="Perito judicial em TI (TJSP 147088, TRT2). Perícia forense digital, Due Diligence de TI em M&amp;A, e-discovery, ransomware, LGPD/GDPR. Assistente Técnico. São Paulo.">
-    <meta name="keywords" content="perito judicial, perito em informática, perícia forense digital, laudo pericial, prova digital, assistente técnico, Due Diligence TI, M&amp;A, TJSP, TRT2, curriculo Lattes, CNPq, vazamento de dados, ransomware, LGPD, GDPR, DFIR, São Paulo">
+    <meta name="keywords" content="perito judicial, perito em informática, perícia forense digital, laudo pericial, prova digital, assistente técnico, Due Diligence TI, M&amp;A, TJSP, TRT2, curriculo Lattes, CNPq, cadeia de custódia, CPP art. 158-A, ISO 27037, vazamento de dados, ransomware, LGPD, GDPR, DFIR, São Paulo">
     <meta property="og:title" content="Fábio Monreal | Perito Judicial TI e Forense Digital | TJSP | TRT2">
     <meta property="og:description" content="Perito judicial em TI (TJSP 147088, TRT2). Perícia forense digital, Due Diligence de TI em M&amp;A, e-discovery e LGPD. São Paulo.">
     <meta property="og:type" content="profile">
@@ -239,76 +239,124 @@
         .edu { break-inside: avoid; page-break-inside: avoid; }
         .edu li { font-size: 8.5pt; margin-bottom: 3px; list-style: disc; margin-left: 14px; }
         .closing-block { break-inside: avoid; page-break-inside: avoid; }
-        /* Uma pagina A4 no print do navegador (scale 1.0) - tipografia calibrada para preencher a folha */
-        @page { size: A4; margin: 7mm 8mm; }
+        .legal-note {
+            font-size: 7.2pt;
+            color: var(--muted);
+            text-align: justify;
+            margin-top: 6px;
+            line-height: 1.25;
+        }
+        /* Uma pagina A4 no print do navegador (scale 1.0) - texto expandido, sem orphanar rodape */
+        @page { size: A4; margin: 6mm 7mm; }
         @media print {
+            html, body {
+                height: auto !important;
+                overflow: visible !important;
+            }
             body {
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
-                font-size: 8.85pt;
-                line-height: 1.27;
+                font-size: 8.7pt;
+                line-height: 1.26;
             }
             .container { padding: 0; max-width: none; width: 100%; }
             a { color: #333; text-decoration: none; }
             header {
-                margin-bottom: 5px;
-                padding-bottom: 5px;
+                margin-bottom: 4px;
+                padding-bottom: 4px;
                 border-bottom-width: 2px;
             }
-            h1 { font-size: 15.2pt; margin-bottom: 2px; letter-spacing: 0.25px; }
-            .subtitle { font-size: 8.85pt; margin-bottom: 3px; line-height: 1.27; }
+            h1 { font-size: 15pt; margin-bottom: 2px; letter-spacing: 0.25px; }
+            .subtitle { font-size: 8.7pt; margin-bottom: 3px; line-height: 1.26; }
             .credential-highlight {
-                font-size: 7.9pt;
+                font-size: 7.8pt;
                 padding: 2px 8px;
                 margin-bottom: 3px;
             }
-            .contacts { font-size: 7.9pt; margin-bottom: 2px; }
-            .links { white-space: nowrap; font-size: 7.1pt; margin-bottom: 0; }
-            .section { margin-bottom: 5px; break-inside: auto; page-break-inside: auto; }
+            .contacts { font-size: 7.8pt; margin-bottom: 2px; }
+            .links { white-space: nowrap; font-size: 7pt; margin-bottom: 0; }
+            .section { margin-bottom: 4px; break-inside: auto; page-break-inside: auto; }
             .section-title {
-                font-size: 8.6pt;
+                font-size: 8.5pt;
                 margin-bottom: 3px;
-                padding-bottom: 2px;
+                padding-bottom: 1px;
                 letter-spacing: 0.05em;
             }
-            p { margin-bottom: 2px; font-size: 8.2pt; text-align: justify; line-height: 1.27; }
-            .topic-grid { gap: 4px 10px; }
+            p { margin-bottom: 2px; font-size: 8.1pt; text-align: justify; line-height: 1.26; }
+            .topic-grid { gap: 3px 10px; }
             .topic-item.entry { break-inside: avoid; page-break-inside: avoid; margin-bottom: 1px; }
-            .topic-title { font-size: 8pt; margin-bottom: 1px; }
-            .topic-item p { font-size: 7.7pt; line-height: 1.25; }
+            .topic-title { font-size: 7.9pt; margin-bottom: 1px; }
+            .topic-item p { font-size: 7.6pt; line-height: 1.24; }
             .entry { margin-bottom: 3px; break-inside: auto; page-break-inside: auto; }
             .entry-header, .entry h3, .meta {
                 break-after: avoid;
                 page-break-after: avoid;
             }
-            .entry h3 { font-size: 8.6pt; }
-            .meta { font-size: 7.5pt; }
+            .entry h3 { font-size: 8.5pt; }
+            .meta { font-size: 7.4pt; }
             ul.bullets { margin-top: 1px; }
             ul.bullets li {
-                font-size: 8pt;
-                margin-bottom: 2px;
-                line-height: 1.27;
+                font-size: 7.9pt;
+                margin-bottom: 1px;
+                line-height: 1.26;
                 break-inside: avoid;
             }
-            .certs-official { margin-bottom: 4px; }
+            .certs-official { margin-bottom: 3px; }
             .certs-official-title,
             .certs-spec-title,
-            .certs-aff-title { font-size: 8.1pt; margin: 0 0 2px; }
-            .certs-official-list li { font-size: 7.5pt; line-height: 1.25; }
-            .certs-grid { gap: 4px 10px; margin-bottom: 4px; break-inside: auto; align-items: start; }
-            .certs-grid h4 { font-size: 7.7pt; margin-bottom: 1px; }
-            .certs-grid li { font-size: 7.1pt; margin-bottom: 0; line-height: 1.22; }
-            .section-certs { break-before: auto; page-break-before: auto; }
+            .certs-aff-title { font-size: 8pt; margin: 0 0 2px; }
+            .certs-official-list li { font-size: 7.4pt; line-height: 1.22; }
+            .certs-grid {
+                gap: 2px 8px;
+                margin-bottom: 3px;
+                break-inside: auto;
+                page-break-inside: auto;
+                align-items: start;
+            }
+            .certs-grid h4 { font-size: 7.5pt; margin-bottom: 1px; }
+            .certs-grid li { font-size: 6.9pt; margin-bottom: 0; line-height: 1.18; }
+            .section-certs {
+                break-before: auto;
+                page-break-before: auto;
+                break-inside: auto;
+                page-break-inside: auto;
+            }
             .closing-block {
-                break-inside: avoid;
-                page-break-inside: avoid;
-                margin-top: 5px;
-                padding-top: 4px;
+                break-inside: auto !important;
+                page-break-inside: auto !important;
+                break-before: avoid;
+                page-break-before: avoid;
+                margin-top: 3px;
+                padding-top: 3px;
                 border-top: 1px solid var(--line);
             }
-            .affiliations li { font-size: 7.9pt; margin-bottom: 1px; }
-            .section-edu { margin-top: 4px; margin-bottom: 0; }
-            .edu li { font-size: 7.5pt; margin-bottom: 1px; line-height: 1.24; }
+            .affiliations {
+                break-inside: auto;
+                page-break-inside: auto;
+                break-before: avoid;
+                page-break-before: avoid;
+            }
+            .affiliations li { font-size: 7.7pt; margin-bottom: 1px; }
+            .section-edu {
+                margin-top: 3px;
+                margin-bottom: 0;
+                break-inside: auto !important;
+                page-break-inside: auto !important;
+                break-before: avoid;
+                page-break-before: avoid;
+            }
+            .edu {
+                break-inside: auto !important;
+                page-break-inside: auto !important;
+            }
+            .edu li { font-size: 7.4pt; margin-bottom: 1px; line-height: 1.22; }
+            .legal-note {
+                font-size: 7pt;
+                margin-top: 3px;
+                line-height: 1.22;
+                break-before: avoid;
+                page-break-before: avoid;
+            }
             .no-print { display: none !important; }
         }
     </style>
@@ -374,9 +422,10 @@
                     laudos sobre sistemas de IA perante a <strong>ANPD</strong>.</p>
                 </div>
                 <div class="topic-item entry">
-                    <span class="topic-title">Resposta a Incidentes e Cadeia de Custódia</span>
-                    <p>Contenção, preservação de evidências, cronologia técnica e documentação objetiva para
-                    instrução processual (<strong>DFIR</strong> / <strong>Incident Commander</strong>).</p>
+                    <span class="topic-title">Diligências e Cadeia de Custódia</span>
+                    <p>Acompanhamento de buscas e apreensões (cível/criminal): identificação de ativos,
+                    <strong>live forensics</strong> in loco e sanitização pós-incidente, com preservação
+                    da cadeia de custódia (art. 158-A do <strong>CPP</strong> / <strong>DFIR</strong>).</p>
                 </div>
             </div>
         </section>
@@ -512,6 +561,15 @@
                     <li><strong>Curso livre:</strong> Fundamentos de Direito Penal, Processual e Prova Pericial - <strong>AlfaCon</strong></li>
                 </ul>
             </section>
+
+            <p class="legal-note">
+                <strong>Conformidade Normativa &amp; Arcabouço Legal:</strong> Atuação balizada no
+                <strong>CPC</strong> (arts. 156 e 464 - Prova Pericial) e <strong>CPP</strong>
+                (arts. 158-A a 158-F - Cadeia de Custódia), alinhando laudos e pareceres ao
+                Marco Civil da Internet (Lei 12.965/14), <strong>LGPD</strong> (Lei 13.709/18),
+                <strong>ISO/IEC 27037</strong> (Preservação de Evidências Digitais) e
+                <strong>ISO/IEC 27001</strong>.
+            </p>
         </div>
 
         <section class="section no-print" aria-labelledby="extensao-perito">
