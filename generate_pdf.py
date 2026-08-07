@@ -71,7 +71,8 @@ KEYWORDS_PT = (
     "Fábio Monreal, Senior Multi-Cloud Architect, Principal Architect, Security Architect, "
     "Incident Commander, CISO Advisor, MBA FIAP, FinOps, Zero Trust, GRC, Compliance, TOGAF, "
     "Sovereign GenAI, MLOps, SRE, Due Diligence, M&A, Auditoria de TI, Azure, AWS, OCI, DFIR, "
-    "XDR, LGPD, GDPR, CIS Controls, Perito Judicial, TJSP, TRT2, Threat Hunting, São Paulo, Brazil"
+    "XDR, LGPD, GDPR, CIS Controls, Perito Judicial, TJSP, TRT2, OAB/SP, Threat Hunting, "
+    "São Paulo, Brazil"
 )
 
 KEYWORDS_EN = (
@@ -79,7 +80,7 @@ KEYWORDS_EN = (
     "Incident Commander, CISO Advisor, MBA FIAP, FinOps, Zero Trust, GRC, Compliance, TOGAF, "
     "Sovereign GenAI, MLOps, System Design, SRE, Multi-Cloud, Cyber Resilience, Data Security, "
     "AI Governance, Due Diligence, M&A, IT Audit, LGPD, GDPR, CCPA, Azure, AWS, OCI, Sentinel, "
-    "Purview, DFIR, XDR, Threat Hunting, Court-Appointed Expert, Brazil, resume"
+    "Purview, DFIR, XDR, Threat Hunting, Court-Appointed Expert, OAB/SP, Brazil, resume"
 )
 
 TITLE_PERITO = (
@@ -90,7 +91,7 @@ KEYWORDS_PERITO = (
     "perito judicial, perito em informática, perícia forense digital, laudo pericial, "
     "prova digital, assistente técnico, Due Diligence TI, M&A, TJSP, TRT2, "
     "curriculo Lattes, CNPq, cadeia de custódia, CPP art. 158-A, ISO 27037, "
-    "vazamento de dados, ransomware, LGPD, GDPR, DFIR, São Paulo"
+    "OAB/SP, Direito Digital, Privacidade, LGPD, GDPR, DFIR, São Paulo"
 )
 
 TITLE_PMC = (
