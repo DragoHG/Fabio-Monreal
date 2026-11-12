@@ -251,9 +251,7 @@
             margin-bottom: 2px;
         }
         .topic-item p { font-size: 8.2pt; margin: 0; }
-        .edu { break-inside: avoid; page-break-inside: avoid; }
         .edu li { font-size: 8.5pt; margin-bottom: 3px; list-style: disc; margin-left: 14px; }
-        .closing-block { break-inside: avoid; page-break-inside: avoid; }
         .legal-note {
             font-size: 7.2pt;
             color: var(--muted);
@@ -261,8 +259,13 @@
             margin-top: 6px;
             line-height: 1.25;
         }
-        /* Uma pagina A4 em scale 1.0; margem inferior reduzida para preencher a folha */
-        @page { size: A4; margin: 3.5mm 6mm 2mm 6mm; }
+        /* avoid so em tela - no print orphanava Formacao/nota na 2a pagina */
+        @media screen {
+            .edu { break-inside: avoid; page-break-inside: avoid; }
+            .closing-block { break-inside: avoid; page-break-inside: avoid; }
+        }
+        /* Browser print: 1 A4 @ scale 1.0 (PDF local usa scale do generate_pdf.py) */
+        @page { size: A4; margin: 4mm 6mm 2.5mm 6mm; }
         @media print {
             html, body {
                 height: auto !important;
@@ -271,107 +274,113 @@
             body {
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
-                font-size: 7.65pt;
-                line-height: 1.175;
+                font-size: 7.45pt;
+                line-height: 1.15;
             }
             .container { padding: 0; max-width: none; width: 100%; }
             a { color: #333; text-decoration: none; }
             header {
-                margin-bottom: 3px;
-                padding-bottom: 3px;
-                border-bottom-width: 2px;
+                margin-bottom: 2px;
+                padding-bottom: 2px;
+                border-bottom-width: 1.5px;
             }
-            h1 { font-size: 13.8pt; margin-bottom: 2px; letter-spacing: 0.2px; }
-            .subtitle { font-size: 8.1pt; margin-bottom: 2px; line-height: 1.21; }
+            h1 { font-size: 13.2pt; margin-bottom: 1px; letter-spacing: 0.15px; }
+            .subtitle { font-size: 7.8pt; margin-bottom: 2px; line-height: 1.15; }
             .credential-highlight {
-                font-size: 7.4pt;
-                padding: 2px 6px;
+                font-size: 7.1pt;
+                padding: 1px 5px;
                 margin-bottom: 2px;
             }
-            .contacts { font-size: 7.4pt; margin-bottom: 1px; }
-            .links { white-space: nowrap; font-size: 6.6pt; margin-bottom: 0; }
+            .contacts { font-size: 7.1pt; margin-bottom: 1px; }
+            .links { white-space: nowrap; font-size: 6.35pt; margin-bottom: 0; }
             .section { margin-bottom: 2px; break-inside: auto; page-break-inside: auto; }
             .section-title {
-                font-size: 8.1pt;
-                margin-bottom: 2px;
-                padding-bottom: 1px;
-                letter-spacing: 0.04em;
+                font-size: 7.8pt;
+                margin-bottom: 1px;
+                padding-bottom: 0;
+                letter-spacing: 0.03em;
             }
-            p { margin-bottom: 2px; font-size: 7.55pt; text-align: justify; line-height: 1.21; }
-            .topic-grid { gap: 2px 8px; }
+            p { margin-bottom: 1px; font-size: 7.25pt; text-align: justify; line-height: 1.15; }
+            .topic-grid { gap: 1px 6px; }
             .topic-item.entry { break-inside: avoid; page-break-inside: avoid; margin-bottom: 0; }
-            .topic-title { font-size: 7.5pt; margin-bottom: 1px; }
-            .topic-item p { font-size: 7.15pt; line-height: 1.18; }
+            .topic-title { font-size: 7.2pt; margin-bottom: 0; }
+            .topic-item p { font-size: 6.9pt; line-height: 1.14; }
             .entry { margin-bottom: 1px; break-inside: auto; page-break-inside: auto; }
             .entry-header, .entry h3, .meta {
                 break-after: avoid;
                 page-break-after: avoid;
             }
-            .entry h3 { font-size: 8.1pt; }
-            .meta { font-size: 7.1pt; }
-            ul.bullets { margin-top: 1px; padding-left: 11px; }
+            .entry h3 { font-size: 7.8pt; }
+            .meta { font-size: 6.85pt; }
+            ul.bullets { margin-top: 0; padding-left: 11px; }
             ul.bullets li {
-                font-size: 7.28pt;
-                margin-bottom: 0.5px;
-                line-height: 1.19;
+                font-size: 7.05pt;
+                margin-bottom: 0;
+                line-height: 1.15;
                 break-inside: avoid;
             }
-            .certs-official { margin-bottom: 2px; }
+            .certs-official { margin-bottom: 1px; }
             .certs-official-title,
             .certs-spec-title,
-            .certs-aff-title { font-size: 7.8pt; margin: 0 0 1px; }
-            .certs-official-list li { font-size: 7.1pt; line-height: 1.18; }
+            .certs-aff-title { font-size: 7.5pt; margin: 0 0 1px; }
+            .certs-official-list li { font-size: 6.85pt; line-height: 1.14; }
             .certs-grid {
-                gap: 2px 6px;
-                margin-bottom: 2px;
+                gap: 1px 5px;
+                margin-bottom: 1px;
                 break-inside: auto;
                 page-break-inside: auto;
                 align-items: start;
             }
-            .certs-grid h4 { font-size: 7.3pt; margin-bottom: 1px; }
-            .certs-grid li { font-size: 6.45pt; margin-bottom: 0; line-height: 1.14; }
+            .certs-grid h4 { font-size: 7pt; margin-bottom: 0; }
+            .certs-grid li { font-size: 6.25pt; margin-bottom: 0; line-height: 1.12; }
             .section-certs {
                 break-before: auto;
                 page-break-before: auto;
                 break-inside: auto;
                 page-break-inside: auto;
-                margin-bottom: 2px;
+                margin-bottom: 1px;
             }
             .closing-block {
                 break-inside: auto !important;
                 page-break-inside: auto !important;
-                break-before: avoid;
-                page-break-before: avoid;
-                margin-top: 3px;
-                padding-top: 3px;
+                break-before: auto !important;
+                page-break-before: auto !important;
+                margin-top: 2px;
+                padding-top: 2px;
                 border-top: 1px solid var(--line);
             }
             .affiliations {
-                break-inside: auto;
-                page-break-inside: auto;
-                break-before: avoid;
-                page-break-before: avoid;
+                break-inside: auto !important;
+                page-break-inside: auto !important;
+                break-before: auto !important;
+                page-break-before: auto !important;
             }
-            .affiliations li { font-size: 7.25pt; margin-bottom: 1px; }
+            .affiliations li { font-size: 7pt; margin-bottom: 0; }
             .section-edu {
-                margin-top: 3px;
+                margin-top: 2px;
                 margin-bottom: 0;
                 break-inside: auto !important;
                 page-break-inside: auto !important;
-                break-before: avoid;
-                page-break-before: avoid;
+                break-before: auto !important;
+                page-break-before: auto !important;
             }
             .edu {
                 break-inside: auto !important;
                 page-break-inside: auto !important;
             }
-            .edu li { font-size: 7.3pt; margin-bottom: 1px; line-height: 1.21; }
+            .edu li {
+                font-size: 7pt;
+                margin-bottom: 0;
+                line-height: 1.15;
+                break-inside: avoid;
+            }
             .legal-note {
-                font-size: 6.85pt;
-                margin-top: 3px;
-                line-height: 1.2;
-                break-before: avoid;
-                page-break-before: avoid;
+                font-size: 6.55pt;
+                margin-top: 2px;
+                line-height: 1.14;
+                break-before: auto !important;
+                page-break-before: auto !important;
+                break-inside: auto !important;
             }
             .no-print { display: none !important; }
         }
