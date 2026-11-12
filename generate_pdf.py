@@ -131,6 +131,8 @@ async def _page_count_after_pdf(
         format="A4",
         print_background=True,
         scale=scale,
+        margin={"top": "0", "right": "0", "bottom": "0", "left": "0"},
+        prefer_css_page_size=True,
     )
     return len(PdfReader(str(scratch)).pages)
 
@@ -202,6 +204,8 @@ async def generate_pdf(
                 format="A4",
                 print_background=True,
                 scale=current,
+                margin={"top": "0", "right": "0", "bottom": "0", "left": "0"},
+                prefer_css_page_size=True,
             )
             pages_now = len(PdfReader(pdf_path).pages)
             if pages_now <= max_pages:
