@@ -262,7 +262,7 @@
             line-height: 1.25;
         }
         /* Uma pagina A4 no print do navegador (scale 1.0) - texto expandido, sem orphanar rodape */
-        @page { size: A4; margin: 6mm 7mm; }
+        @page { size: A4; margin: 5mm 6mm; }
         @media print {
             html, body {
                 height: auto !important;
@@ -271,65 +271,65 @@
             body {
                 print-color-adjust: exact;
                 -webkit-print-color-adjust: exact;
-                font-size: 8.15pt;
-                line-height: 1.2;
+                font-size: 7.7pt;
+                line-height: 1.15;
             }
             .container { padding: 0; max-width: none; width: 100%; }
             a { color: #333; text-decoration: none; }
             header {
-                margin-bottom: 3px;
-                padding-bottom: 3px;
-                border-bottom-width: 2px;
+                margin-bottom: 2px;
+                padding-bottom: 2px;
+                border-bottom-width: 1.5px;
             }
-            h1 { font-size: 14pt; margin-bottom: 1px; letter-spacing: 0.2px; }
-            .subtitle { font-size: 8.1pt; margin-bottom: 2px; line-height: 1.2; }
+            h1 { font-size: 13pt; margin-bottom: 1px; letter-spacing: 0.15px; }
+            .subtitle { font-size: 7.6pt; margin-bottom: 1px; line-height: 1.15; }
             .credential-highlight {
-                font-size: 7.3pt;
-                padding: 1px 6px;
-                margin-bottom: 2px;
+                font-size: 6.9pt;
+                padding: 1px 5px;
+                margin-bottom: 1px;
             }
-            .contacts { font-size: 7.3pt; margin-bottom: 1px; }
-            .links { white-space: nowrap; font-size: 6.6pt; margin-bottom: 0; }
-            .section { margin-bottom: 3px; break-inside: auto; page-break-inside: auto; }
+            .contacts { font-size: 6.9pt; margin-bottom: 0; }
+            .links { white-space: nowrap; font-size: 6.2pt; margin-bottom: 0; }
+            .section { margin-bottom: 2px; break-inside: auto; page-break-inside: auto; }
             .section-title {
-                font-size: 8pt;
-                margin-bottom: 2px;
-                padding-bottom: 1px;
-                letter-spacing: 0.04em;
+                font-size: 7.5pt;
+                margin-bottom: 1px;
+                padding-bottom: 0;
+                letter-spacing: 0.03em;
             }
-            p { margin-bottom: 1px; font-size: 7.6pt; text-align: justify; line-height: 1.2; }
-            .topic-grid { gap: 2px 8px; }
+            p { margin-bottom: 1px; font-size: 7.15pt; text-align: justify; line-height: 1.14; }
+            .topic-grid { gap: 1px 6px; }
             .topic-item.entry { break-inside: avoid; page-break-inside: avoid; margin-bottom: 0; }
-            .topic-title { font-size: 7.4pt; margin-bottom: 0; }
-            .topic-item p { font-size: 7.1pt; line-height: 1.18; }
-            .entry { margin-bottom: 2px; break-inside: auto; page-break-inside: auto; }
+            .topic-title { font-size: 7pt; margin-bottom: 0; }
+            .topic-item p { font-size: 6.7pt; line-height: 1.12; }
+            .entry { margin-bottom: 1px; break-inside: auto; page-break-inside: auto; }
             .entry-header, .entry h3, .meta {
                 break-after: avoid;
                 page-break-after: avoid;
             }
-            .entry h3 { font-size: 8pt; }
-            .meta { font-size: 7pt; }
-            ul.bullets { margin-top: 0; }
+            .entry h3 { font-size: 7.5pt; }
+            .meta { font-size: 6.6pt; }
+            ul.bullets { margin-top: 0; padding-left: 11px; }
             ul.bullets li {
-                font-size: 7.4pt;
+                font-size: 6.95pt;
                 margin-bottom: 0;
-                line-height: 1.2;
+                line-height: 1.14;
                 break-inside: avoid;
             }
-            .certs-official { margin-bottom: 2px; }
+            .certs-official { margin-bottom: 1px; }
             .certs-official-title,
             .certs-spec-title,
-            .certs-aff-title { font-size: 8pt; margin: 0 0 2px; }
-            .certs-official-list li { font-size: 7.4pt; line-height: 1.22; }
+            .certs-aff-title { font-size: 7.4pt; margin: 0 0 1px; }
+            .certs-official-list li { font-size: 6.9pt; line-height: 1.14; }
             .certs-grid {
-                gap: 2px 8px;
-                margin-bottom: 3px;
+                gap: 1px 6px;
+                margin-bottom: 2px;
                 break-inside: auto;
                 page-break-inside: auto;
                 align-items: start;
             }
-            .certs-grid h4 { font-size: 7.5pt; margin-bottom: 1px; }
-            .certs-grid li { font-size: 6.9pt; margin-bottom: 0; line-height: 1.18; }
+            .certs-grid h4 { font-size: 7pt; margin-bottom: 0; }
+            .certs-grid li { font-size: 6.5pt; margin-bottom: 0; line-height: 1.12; }
             .section-certs {
                 break-before: auto;
                 page-break-before: auto;
@@ -341,8 +341,8 @@
                 page-break-inside: auto !important;
                 break-before: avoid;
                 page-break-before: avoid;
-                margin-top: 3px;
-                padding-top: 3px;
+                margin-top: 2px;
+                padding-top: 2px;
                 border-top: 1px solid var(--line);
             }
             .affiliations {
@@ -351,9 +351,9 @@
                 break-before: avoid;
                 page-break-before: avoid;
             }
-            .affiliations li { font-size: 7.7pt; margin-bottom: 1px; }
+            .affiliations li { font-size: 7.1pt; margin-bottom: 0; }
             .section-edu {
-                margin-top: 3px;
+                margin-top: 2px;
                 margin-bottom: 0;
                 break-inside: auto !important;
                 page-break-inside: auto !important;
@@ -364,11 +364,11 @@
                 break-inside: auto !important;
                 page-break-inside: auto !important;
             }
-            .edu li { font-size: 7.4pt; margin-bottom: 1px; line-height: 1.22; }
+            .edu li { font-size: 6.9pt; margin-bottom: 0; line-height: 1.14; }
             .legal-note {
-                font-size: 7pt;
-                margin-top: 3px;
-                line-height: 1.22;
+                font-size: 6.5pt;
+                margin-top: 2px;
+                line-height: 1.14;
                 break-before: avoid;
                 page-break-before: avoid;
             }

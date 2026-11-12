@@ -188,9 +188,15 @@ article.entry {
 li {
   break-inside: auto !important;
   page-break-inside: auto !important;
-  orphans: 2;
-  widows: 2;
+  orphans: 3;
+  widows: 3;
   margin-top: 1.2px !important;
+}
+
+/* Evita orphan de linha no fim do item (ex.: "DR." sozinho na pagina seguinte) */
+.entry ul > li {
+  break-inside: avoid !important;
+  page-break-inside: avoid !important;
 }
 
 ul {
