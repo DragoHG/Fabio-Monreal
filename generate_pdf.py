@@ -23,8 +23,6 @@ HTML_PT_PRIVATE = ROOT / "index_private.html"
 HTML_EN_PRIVATE = ROOT / "index_en_private.html"
 HTML_PERITO = ROOT / "sobre" / "Fabio_Monreal_Perito.html"
 HTML_PERITO_PRIVATE = ROOT / "sobre" / "Fabio_Monreal_Perito_private.html"
-HTML_PMC = ROOT / "sobre" / "Fabio_Monreal_PMC.html"
-HTML_PMC_EN = ROOT / "sobre" / "Fabio_Monreal_PMC_en.html"
 
 
 def file_url(path: Path | str) -> str:
@@ -39,7 +37,7 @@ def resolve_cv_html(private_path: Path, repo_path: Path) -> Path:
         return private_path.resolve()
     if repo_path.exists():
         print(
-            f"Nota: {private_path.name} não encontrado — "
+            f"Nota: {private_path.name} não encontrado - "
             f"a usar {repo_path.name} (clone do GitHub / produção)."
         )
         return repo_path.resolve()
@@ -69,18 +67,28 @@ DOCUMENT_TITLE = (
 # Alinhado às meta keywords de index.html / index_en.html (produção).
 KEYWORDS_PT = (
     "Fábio Monreal, Senior Multi-Cloud Architect, Principal Architect, Security Architect, "
-    "Incident Commander, CISO Advisor, MBA FIAP, FinOps, Zero Trust, GRC, Compliance, TOGAF, "
-    "Sovereign GenAI, MLOps, SRE, Due Diligence, M&A, Auditoria de TI, Azure, AWS, OCI, DFIR, "
-    "XDR, LGPD, GDPR, CIS Controls, Perito Judicial, TJSP, TRT2, OAB/SP, Threat Hunting, "
-    "São Paulo, Brazil"
+    "Incident Commander, CISO Advisor, Founder, CISO, MBA FIAP, FinOps, Zero Trust, ZTNA, "
+    "GRC, Compliance, TOGAF, Sovereign GenAI, IA Soberana, SaaS B2B, Justitia, "
+    "Monreal Digital Intelligence, Inteligência Jurídica, Due Diligence M&A, Perícia Digital, "
+    "Forense Digital, RAG, Multi-Agent AI, MLOps, n8n, modelos preditivos, OCR Forense, ICR, VLM, "
+    "Serpro, GLEIF, Cadeia de Custódia, SHA-256, Isolamento Multi-tenant, DevSecOps, Zero-Touch, "
+    "SRE, Observability, Zabbix, Datadog, Log Management, SOAR, Security Operations, "
+    "controles SOC 2 TSC, ISO 27001, NIST CSF, CIS, Hetzner, Docker, Django, Next.js, "
+    "PostgreSQL, Vector DB, Redis, Celery, Privacy by Design, LGPD, GDPR, DFIR, XDR, "
+    "Perito Judicial, TJSP, TRT2, OAB/SP, Product Ownership, SEO Institucional, São Paulo, Brazil"
 )
 
 KEYWORDS_EN = (
     "Fábio Monreal, Senior Multi-Cloud Architect, Principal Architect, Security Architect, "
-    "Incident Commander, CISO Advisor, MBA FIAP, FinOps, Zero Trust, GRC, Compliance, TOGAF, "
-    "Sovereign GenAI, MLOps, System Design, SRE, Multi-Cloud, Cyber Resilience, Data Security, "
-    "AI Governance, Due Diligence, M&A, IT Audit, LGPD, GDPR, CCPA, Azure, AWS, OCI, Sentinel, "
-    "Purview, DFIR, XDR, Threat Hunting, Court-Appointed Expert, OAB/SP, Brazil, resume"
+    "Incident Commander, CISO Advisor, Founder, CISO, MBA FIAP, FinOps, Zero Trust, ZTNA, "
+    "GRC, Compliance, TOGAF, Sovereign GenAI, sovereign AI, SaaS B2B, "
+    "Justitia, Monreal Digital Intelligence, legal intelligence, Due Diligence M&A, "
+    "digital forensics, RAG, Multi-Agent AI, MLOps, n8n, predictive models, forensic OCR, ICR, VLM, "
+    "Serpro, GLEIF, chain of custody, SHA-256, multi-tenant isolation, DevSecOps, Zero-Touch, "
+    "SRE, Observability, Zabbix, Datadog, Log Management, SOAR, Security Operations, "
+    "SOC 2 TSC controls, ISO 27001, NIST CSF, CIS, Hetzner, Docker, Django, Next.js, "
+    "PostgreSQL, Vector DB, Redis, Celery, Privacy by Design, LGPD, GDPR, CCPA, Azure, AWS, OCI, "
+    "DFIR, XDR, Court-Appointed Expert, OAB/SP, Product Ownership, institutional SEO, Brazil, resume"
 )
 
 TITLE_PERITO = (
@@ -90,26 +98,12 @@ TITLE_PERITO = (
 KEYWORDS_PERITO = (
     "perito judicial, perito em informática, perícia forense digital, laudo pericial, "
     "prova digital, assistente técnico, Due Diligence TI, M&A, TJSP, TRT2, "
-    "curriculo Lattes, CNPq, cadeia de custódia, CPP art. 158-A, ISO 27037, "
-    "OAB/SP, Direito Digital, Privacidade, LGPD, GDPR, DFIR, São Paulo"
-)
-
-TITLE_PMC = (
-    "F. Drago M. | Inteligência Corporativa & Operações Híbridas"
-)
-
-KEYWORDS_PMC = (
-    "inteligência privada, OSINT, HUMINT, contra-inteligência corporativa, asset recovery, "
-    "due diligence, red teaming, proteção executiva, corporate intelligence, investigação híbrida"
-)
-
-TITLE_PMC_EN = (
-    "F. Drago M. | Corporate Intelligence & Hybrid Operations"
-)
-
-KEYWORDS_PMC_EN = (
-    "private intelligence, OSINT, HUMINT, corporate counter-intelligence, asset recovery, "
-    "due diligence, red teaming, executive protection, court-appointed expert, hybrid operations"
+    "curriculo Lattes, CNPq, cadeia de custódia, SHA-256, OCR forense, laudo assistido, "
+    "chancela humana, IA Soberana, Justitia, justit.ia.br, Monreal Digital Intelligence, n8n, "
+    "modelos preditivos, OCR forense, ICR, VLM, Serpro, GLEIF, diários oficiais, "
+    "Privacy by Design, Zero Trust, isolamento multi-tenant, Hetzner, Zabbix, Datadog, "
+    "controles SOC 2 TSC, ISO 27001, CPP art. 158-A, ISO 27037, OAB/SP, Direito Digital, "
+    "Privacidade, LGPD, GDPR, DFIR, São Paulo"
 )
 
 # Limites da busca binária (Playwright aceita scale em (0, 2]; na prática usamos ≤ 1)
@@ -262,9 +256,9 @@ async def main() -> None:
     subj_pt = "Currículo Executivo - Fábio Monreal"
     subj_en = "Executive Resume - Fábio Monreal"
     if pt_src.name == "index_private.html":
-        subj_pt += " — cópia local (_private)"
+        subj_pt += " - copia local (_private)"
     if en_src.name == "index_en_private.html":
-        subj_en += " — local copy (_private)"
+        subj_en += " - local copy (_private)"
 
     await generate_pdf(
         str(pt_src),
@@ -289,7 +283,7 @@ async def main() -> None:
     )
 
     if not HTML_PERITO.exists() and not HTML_PERITO_PRIVATE.exists():
-        print(f"Nota: perito omitido — {HTML_PERITO.name} não encontrado.")
+        print(f"Nota: perito omitido - {HTML_PERITO.name} não encontrado.")
     else:
         perito_src = resolve_cv_html(HTML_PERITO_PRIVATE, HTML_PERITO)
         scale_perito = await find_max_fit_scale(perito_src, max_pages=1)
@@ -307,43 +301,6 @@ async def main() -> None:
             scale=scale_perito,
             max_pages=1,
         )
-
-    if not HTML_PMC.exists():
-        print(f"Nota: PMC omitido — {HTML_PMC.name} não encontrado.")
-    else:
-        scale_pmc = await find_max_fit_scale(HTML_PMC)
-        print(f"Optimal scale (PMC PT, {HTML_PMC.name}): {scale_pmc}")
-
-        await generate_pdf(
-            str(HTML_PMC),
-            str(ROOT / "sobre" / "Fabio_Monreal_PMC.pdf"),
-            {
-                "title": TITLE_PMC,
-                "subject": "Portfólio Inteligência Privada — F. Drago M.",
-                "keywords": KEYWORDS_PMC,
-                "author": "F. Drago M.",
-            },
-            scale=scale_pmc,
-        )
-
-    if not HTML_PMC_EN.exists():
-        print(f"Nota: PMC EN omitido — {HTML_PMC_EN.name} não encontrado.")
-        return
-
-    scale_pmc_en = await find_max_fit_scale(HTML_PMC_EN)
-    print(f"Optimal scale (PMC EN, {HTML_PMC_EN.name}): {scale_pmc_en}")
-
-    await generate_pdf(
-        str(HTML_PMC_EN),
-        str(ROOT / "sobre" / "Fabio_Monreal_PMC_EN.pdf"),
-        {
-            "title": TITLE_PMC_EN,
-            "subject": "Private Intelligence Portfolio — F. Drago M.",
-            "keywords": KEYWORDS_PMC_EN,
-            "author": "F. Drago M.",
-        },
-        scale=scale_pmc_en,
-    )
 
 
 if __name__ == "__main__":
